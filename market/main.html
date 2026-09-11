@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LODI Shop</title>
+    <link href="./resources/css/bootstrap.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="./resources/imgs/market/icon.png">
+    <header style="background-color: #ffffff;">
+      <nav class="navbar navbar-expand-lg" style="padding-bottom: 0; background-color: white; width: 100%; display: block;">
+        <div class="navMargin">
+
+          <div style="float: left; margin-left: 20px; display: flex;">
+            <a class="nav-link" href="./function/download.html" style="font-size: 14px; width: 100px; display: flex;"><img src="./resources/imgs/market/icon.png" style="width: 15px; height: 15px; margin-top: 3px; margin-right: 5px;">앱다운로드</a>
+            <a class="nav-link cursor" onclick="alert('Ctrl + D 키를 누르면 즐겨찾기에 추가하실 수 있습니다.')" style="margin-left: 10px; font-size: 14px; width: 100px; display: flex;"><svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 2px; margin-right: 5px;" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg>즐겨찾기</a>
+          </div>
+          <div style="float: right;">
+            <a class="nav-link" href="./account/loginForm.html" style="font-size: 14px; width: 50px; color: #8b8b8b;">로그인</a>
+          </div>
+
+        </div>
+
+        <hr style="margin: 0; margin-top: 25px; height: 1px; border: 0; background: linear-gradient(45deg, #ff009d, #00fff2);">
+        
+        <div class="navMargin" style="width: 100%; margin-top: 25px; margin-bottom: 15px;">
+          
+          <div style="display: inline-flex; width: 100%;">
+            
+            <div style="display: flex; width: 58%;">
+              <a class="navbar-brand" href="./main.html"><img src="./resources/imgs/market/logo_2.png" style="margin-left: 10px; margin-right: 10px;">LODI Shop</a>
+              <div id="searchDiv" style="display: flex; width: 100%;">
+                <input id="searchInput" type="search" placeholder=" 상품명 검색" aria-label="Search" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}" style="width: 87%; height: 40px; margin-top: 9px; border: none; height: 30px; margin-left: 10px;">
+                <div class="cursor" style="width: 30px; height: 30px; margin-top: 8px;"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16" style="color: rgb(255, 216, 250);"><path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/><path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/></svg></div>
+              </div>
+            </div>
+
+          </div>
+          <div style="display: flex;">
+            <div>
+              <button type="button" data-bs-toggle="collapse" data-bs-target="#menu1" aria-controls="menu1" aria-expanded="false" style="border: 0; background-color: #fff;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></span>
+              </button>
+              <div class="collapse" id="menu1" style="margin-left: 15px;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <div class="dropdown">
+                      <button class="btn dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; margin: 0px; padding: 0px; margin-top: 8px; margin-bottom: 8px; margin-left: 0; margin-right: 5px;">
+                        카테고리
+                      </button>
+                      <ul id="categoryList" class="dropdown-menu dropend" aria-labelledby="dropdownMenuButton" style="margin-top: -8px; background-color: #ffffffe1; width: 100px;">
+                        <li><button type="button" id="mGroup_Dropdown" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: 0; color: #000; margin:0;" onclick="location.href='./function/m_category.html'">
+                          남성그룹
+                        </button>
+                          <div id="GroupList" class="dropdown-menu" x-placement="right-start" style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform; background-color: #ffffffe1; margin-left: -8px;">
+                            <a class="dropdown-item" href="#">방탄소년단</a>
+                            <a class="dropdown-item" href="#">NCT</a>
+                            <a class="dropdown-item" href="#">세븐틴</a>
+                            <a class="dropdown-item" href="#">슈퍼주니어</a>
+                            <a class="dropdown-item" href="#">엑소</a>
+                            <a class="dropdown-item" href="#">스트레이키즈</a>
+                            <a class="dropdown-item" href="#">더보이즈</a>
+                            <a class="dropdown-item" href="#">비투비</a>
+                            <a class="dropdown-item" href="#">아스트로</a>
+                            <a class="dropdown-item" href="#">빅뱅</a>
+                            <a class="dropdown-item" href="#">엔하이픈</a>
+                            <a class="dropdown-item" href="#">투모로우바이투게더</a>
+                            <a class="dropdown-item" href="#">트레저</a>
+                            <a class="dropdown-item" href="#">샤이니</a>
+                            <a class="dropdown-item" href="#">.더보기</a>
+                          </div>
+                          </li>
+                        <li><button type="button" id="fGroup_Dropdown" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: 0; color: #000; margin:0;" onclick="location.href='./function/f_category.html'">
+                          여성그룹
+                        </button>
+                          <div id="GroupList" class="dropdown-menu" x-placement="right-start" style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform; background-color: #ffffffe1; margin-left: -8px;">
+                            <a class="dropdown-item" href="./function/category_html/newjeans.html">NewJeans</a>
+                            <a class="dropdown-item" href="#">LE SSERAFIM</a>
+                            <a class="dropdown-item" href="#">IVE</a>
+                            <a class="dropdown-item" href="#">프로미스나인</a>
+                            <a class="dropdown-item" href="#">오마이걸</a>
+                            <a class="dropdown-item" href="#">aespa</a>
+                            <a class="dropdown-item" href="#">STAYC</a>
+                            <a class="dropdown-item" href="#">NMIXX</a>
+                            <a class="dropdown-item" href="#">TWICE</a>
+                            <a class="dropdown-item" href="#">Red Velvet</a>
+                            <a class="dropdown-item" href="#">BLACKPINK</a>
+                            <a class="dropdown-item" href="#">빌리</a>
+                            <a class="dropdown-item" href="#">마마무</a>
+                            <a class="dropdown-item" href="#">(여자)아이들</a>
+                            <a class="dropdown-item" href="./function/f_category.html">더보기</a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/></svg>
+                      시세검색
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+                      사기조회
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-video" viewBox="0 0 16 16"><path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/><path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z"/></svg>
+                      고객지원
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./function/account/loginForm.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/></svg>
+                      마이페이지
+                    </a>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-balloon-heart" viewBox="0 0 16 16"><path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721L8 2.42Zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063.045.041.089.084.132.129.043-.045.087-.088.132-.129 3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398Z"/></svg>
+                        아이돌 이벤트
+                      </a>
+                    </li>
+                </ul>
+              </div>
+          </div>
+          
+        </div>
+      </nav>
+      <hr style="margin: 0; margin-top: 25px; height: 1px; border: 0; background: linear-gradient(-45deg, #ff009d, #00fff2)">
+    </header>
+    
+    <style>
+      *{box-sizing: border-box;}
+      *{margin:0; padding:0;}
+      a{text-decoration: none;color:black;} /* a텍스트 앞에 붙는 . 제거 */
+      ul{list-style: none;} /* ul의 리스트 스타일 제거 */
+
+      .nav-up{top: -200px} /* 헤더 스크롤 이벤트 관련 */
+
+      .searchQ:hover{
+        color: rgb(255, 129, 207) !important;
+      }
+
+      .cursor:hover{
+        cursor: pointer;
+      }
+
+      #searchDiv{
+        width: 40%;
+        height: 50px;
+        border: 2px solid transparent;
+        border-radius: 30px;
+        background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(to right, #fbff1bbe, #ffcdf3aa, #65d3ffaa);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+      }
+
+      a:hover{
+        color: #1f1f1f !important;
+      }
+
+      header{
+        z-index: 20;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        transition: top 0.2s ease-in-out;
+      }
+
+      #mGroup_Dropdown:hover ~ #GroupList{
+        display: block;
+      }
+      #GroupList:hover{
+        display: block;
+      }
+      #fGroup_Dropdown:hover ~ #GroupList{
+        display: block;
+      }
+
+      #userInfoBox {
+  position: absolute;  /* 또는 fixed 가능 */
+  top: 10px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;  /* 상단에 위치하게 */
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+      }
+
+      #body_main{
+        margin: 10%;
+        margin-top: 214px;
+        margin-bottom: 20px;
+      }
+
+      .navMargin{
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+
+      .sideBanner {
+        z-index: 10;
+        position: absolute;
+        height: auto;
+        top: 114px;
+        background-color: #eeeeee;
+        color: #000000;
+      }
+
+      .sideBannerImg{
+        width: 10vw;
+        height: auto;
+      }
+
+      .recommandItemFrame{
+        transition: all 0.2s ease-in-out;
+        width: 200px;
+        height: 300px;
+        border-radius: 7px;
+        margin: 20px;
+        background-color: #ffffff;
+        display: inline-block;
+      }
+
+      .recommandItemImg{
+        width: 200px;
+        height: 200px;
+        border-radius: 7px;
+        background-size: cover;
+        background-color: #e7e7e7;
+        z-index: 10;
+      }
+
+      .recommandItemExplanation{
+        width: 200px;
+        height: 100px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+        background-color: #ffffff;
+      }
+
+      .recommandItemExplanation p{
+        margin: 10px;
+      }
+
+      .recommandItemExplanation .priceItem{
+        margin: 10px;
+        font-size: 17px;
+        font-weight: bold;
+      }
+
+      .recommandItemExplanation .location{
+        margin: 10px;
+        font-size: 15px;
+        color: #4e4e4e;
+      }
+
+      .recommandItemFrame:hover{
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 15px 3px #bbbbbb;
+        cursor: pointer;
+      }
+
+      @media screen and (min-width: 1350px) {
+        #body_main{
+          margin: 14% !important;
+          margin-top: 214px !important;
+          margin-bottom: 0px !important;
+        }
+        .navMargin{
+          margin-left: 14% !important;
+          margin-right: 14% !important;
+        }
+      }
+
+      @media screen and (min-width: 1681px){
+        .etc{
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 950px) {
+        #searchInput{
+          width: 80% !important;
+        }
+        .sideBanner{
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 650px) {
+        #searchInput{
+          width: 70% !important;
+        }
+      }
+
+
+      /*======= 아래는 스크롤바 관련 CSS =======*/
+      html::-webkit-scrollbar {
+        width: 10px;
+      }
+      html::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(-135deg, #ffbae5, #e6b1ff);
+        border-radius: 10px;
+        background-clip: padding-box;
+        border: 2px solid transparent;
+      }
+      html::-webkit-scrollbar-track {
+        background-color: transparent;
+        box-shadow: inset 0px 0px 5px white;
+      }
+    </style>
+
+</head>
+<body>
+ <!-- 사용자 정보 박스: 상단 오른쪽에 위치 -->
+  <div id="userInfoBox">
+    <span id="userNameDisplay">로그인 상태 확인 중...</span>
+    <button id="logoutBtn">로그아웃</button>
+  </div>
+  
+  <div class="sideBanner">
+    <a href="https://www.goobne.co.kr/menu/new?gubun=lesserafim_0515" target="_blank" rel="noreferrer noopener"><img src="./resources/imgs/ad/sideBannerImg.png" class="sideBannerImg"></a>
+  </div>
+
+  <div id="body_main">
+    <div id="topSlideBanner" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="7" aria-label="Slide 8"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="8" aria-label="Slide 9"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <!-- <video autoplay muted loop class="d-block w-100"><source src="./imgs_market/slidebannerimg01.mp4" type="video/mp4">ERROR</video> -->
+          <a href="https://mall.lottechilsung.co.kr/display/displayShop.lecs?displayNo=CF1A07A01&stonType=P" target="_blank" rel="noreferrer noopener"><img src="./resources/imgs/ad/slidebannerimg01.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.ekdp.com/brand/view.asp?brandID=oksusutea" target="_blank" rel="noreferrer noopener"><img src="./resources/imgs/ad/slidebannerimg02.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.ekdp.com/brand/view.asp?brandID=vita500" target="_blank" rel="noreferrer noopener"><img src="./resources/imgs/ad/slidebannerimg03.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.mcdonalds.co.kr/kor/main.do" target="_blank" rel="noreferrer noopener"><img src="./resources/imgs/ad/slidebannerimg04.png" class="d-block w-100" alt="..."></a>  
+        </div>
+        <div class="carousel-item">
+          <a href="https://weverseshop.io/en/shop/GL_KRW/artists/35/categories/615" target="_blank" rel="noreferrer noopener"><img src="./resources/imgs/ad/slidebannerimg05.png" class="d-block w-100" alt="..."></a>  
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.cubee.co.kr/m/product.html?branduid=10372611" target="_blank" rel="noreferrer noopener"><img src="./resources/imgs/ad/slidebannerimg06.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://twitter.com/8_OHMYGIRL" target="_blank" rel="noreferrer noopner"><img src="./resources/imgs/ad/slidebannerimg07.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://twitter.com/eunchae_diary" target="_blank" rel="noreferrer noopner"><img src="./resources/imgs/ad/slidebannerimg08.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://thejypshop.com/nmixx.html#none" target="_blank" rel="noreferrer noopner"><img src="./resources/imgs/ad/slidebannerimg09.png" class="d-block w-100" alt="..."></a>
+        </div>  
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#topSlideBanner" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#topSlideBanner" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  
+    <div style="margin-top:30px; width:100%;">
+      <h4>추천 상품</h4>
+      <div id="recommandGrid" style="margin-left: -10px; margin-right: -10px; text-align: center;">
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item1_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>조유리 미공포 팝니다</p><p class="priceItem">15,000원</p><p class="location">경기도 남양시 | 2시간 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item2_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>야부키 나코 미공포</p><p class="priceItem">10,000원</p><p class="location">서울 노원구 | 방금 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item3_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>프로미스나인 앨포</p><p class="priceItem">2000원</p><p class="location">전국 | 15분 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item4_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>프나 앨범포카 팔아요!</p><p class="priceItem">4000원</p><p class="location">경기도 파주시 | 7시간 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item5_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>박지원 yes24 특전포카</p><p class="priceItem">15,000원</p><p class="location">서울 부평구 | 1일 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item6_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>아이브 교환 구합니다</p><p class="priceItem">10,000원</p><p class="location">경기도 동두천시 | 3일 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item7_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>앚즈 비올레타 일괄 판매</p><p class="priceItem">100,000원</p><p class="location">충청남도 태안시 | 4주 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item8_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>아이브 포토카드 양도</p><p class="priceItem">30,000원</p><p class="location">광주광역시 | 방금 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item9_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>르세라핌 앨포</p><p class="priceItem">6,000원</p><p class="location">전국 | 방금 전</p></div></div>
+        <div class="recommandItemFrame"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item10_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>뉴진스 팬미팅 슬로건</p><p class="priceItem">25,000원</p><p class="location">서울 마포구 | 3시간 전</p></div></div>
+        <div class="recommandItemFrame etc"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item11_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>민지 공방포카 양도</p><p class="priceItem">300,000원</p><p class="location">서울 | 한달 전</p></div></div>
+        <div class="recommandItemFrame etc"><div class="recommandItemImg" style="background-image: url(./resources/imgs/item_pic/item12_thumbnail.jpg);"></div><div class="recommandItemExplanation"><p>뉴진스 버니즈 캠프 포카</p><p class="priceItem">35,000원</p><p class="location">전국 | 2주 전</p></div></div>
+      </div>
+    </div>
+
+
+    <div style="width: 100%;">
+      <a href="#"><img src="./resources/imgs/market/main_pickup_img_banner.png" style="width: 100%;"></a>
+    </div>
+  
+    <div style="width: 100%; margin-top: 20px; margin-bottom: 20px;">
+      <a href="#"><img src="./resources/imgs/market/ban.png" style="width: 100%;"></a>
+    </div>
+  
+    <div id="footer" class="container">
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Social</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Instagram</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Facebook</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Twitter</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Youtube</a></li>
+            </ul>
+          </div>
+      
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Information</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">개인정보처리방침</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">이용약관</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">분쟁처리절차</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">청소년보호정책</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">사업자정보확인</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">게시글 개인정보 수집 및 이용 안내</a></li>
+            </ul>
+          </div>
+      
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Contact</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">메일: stave123@naver.com</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">전화: 010-5038-9072</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">주소: 알 수 없음.</a></li>
+            </ul>
+          </div>
+      
+          <div class="col-md-5 offset-md-1 mb-3">
+            <form>
+              <h5>최신 정보에 대한 메일 구독</h5>
+              <p>물품에 대한 최신 정보를 메일로 받아보세요.</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+          <p>© 2025 LODI Shop All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-dark" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16"><path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/></svg></use></svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+  
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+  <script src="./resources/js/bootstrap.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDmj13K1RDWwGBP20W_qjR7SE7r0hIBg0I",
+    authDomain: "capstone-design-7720e.firebaseapp.com",
+    projectId: "capstone-design-7720e",
+    storageBucket: "capstone-design-7720e.firebasestorage.app",
+    messagingSenderId: "315419868474",
+    appId: "1:315419868474:web:91eb93d2898b9881a1a403",
+    measurementId: "G-4PGY64H6BY"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const userNameDisplay = document.getElementById('userNameDisplay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const name = user.displayName || user.email;
+        userNameDisplay.textContent = `${name} 님 환영합니다!`;
+        logoutBtn.style.display = "inline-block";
+      } else {
+        userNameDisplay.textContent = "로그인이 필요합니다.";
+        logoutBtn.style.display = "none";
+        // 필요하다면 로그인 페이지로 이동
+        // window.location.href = "login.html";
+      }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      signOut(auth).then(() => {
+        alert("로그아웃 되었습니다.");
+        window.location.reload();
+      }).catch((error) => {
+        console.error("로그아웃 실패:", error);
+      });
+    });
+  </script>
+  <script>
+    /* 새로고침시 스크롤 초기화 */
+    history.scrollRestoration = "manual";
+
+    /* 다음은 헤더 스크롤 이벤트 */
+    var didScroll;
+        var lastScrollTop = 0;
+        var delta = 5;
+        var navbarHeight = $('header').outerHeight();
+
+        $(window).scroll(function(event){didScroll = true;});
+        setInterval(function(){if(didScroll) {hasScrolled(); didScroll=false;}}, 250);
+        
+        function hasScrolled() {
+            var st = $(this).scrollTop();
+            if(Math.abs(lastScrollTop - st) <= delta)
+                return;
+            if (st > lastScrollTop && st > navbarHeight){
+                $('header').removeClass('nav-down').addClass('nav-up');
+            } else {
+                if(st + $(window).height() < $(document).height()) {$('header').removeClass('nav-up').addClass('nav-down');}
+            }lastScrollTop = st;
+        }
+
+    /* 다음은 사이드 플로팅 배너 */
+    var floatPosition = parseInt($(".sideBanner").css('top'))
+    // scroll 인식
+    $(window).scroll(function() {
+        // 현재 스크롤 위치
+        var currentTop = $(window).scrollTop();
+        var bannerTop = currentTop + floatPosition  + 100 + "px";
+        //이동 애니메이션
+        $(".sideBanner").stop().animate({
+          "top" : bannerTop
+        }, 500);
+    }).scroll();
+  </script>
+  <script type="module" src="/static/js/login.js"></script>
+</body>
+</html>

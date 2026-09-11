@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./introduce.css">
+    <title>LODI Shop</title>
+
+    <!-- 헤더 -->
+    <header id="header" class="header">
+        <ul>
+            <a href="./introduce.html"><img src="./imgs_introduce/logo.png" style="float: left; margin-top: -8px;"></a>
+            <!-- <div id="headerLogo"></div> -->
+            <li><a href="#home">홈</a></li>
+            <li><a href="#intro">회사소개</a></li>
+            <li><a href="#customerService">고객센터</a></li>
+            <li><a href="#marketPrice">시세검색</a></li>
+            <li><a href="#mobile">모바일앱</a></li>
+        </ul>
+    </header>
+</head>
+
+
+<body>
+    <div id="home" class="banner">
+        <div><h1 class="sa sa-up" data-sa-margin="200">당신의 덕질을 위한</h1></div>
+        <div><h1 class="sa sa-up" data-sa-margin="200">중고 거래 플랫폼</h1></div>
+        <div><button class="customizedBtn btn1 "onclick="location.href='./market/main.html'">이동</button></div>
+    </div>
+    <!--
+    <div id="intro" class="banner">
+    </div>
+
+    <div id="customerService" class="banner">
+    </div>
+
+    <div id="marketPrice" class="banner">
+    </div>
+
+    <div id="mobile" class="banner">
+    </div>
+
+    <div id="footer" class="footer">
+    </div>
+    -->
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script>
+        /* 아래는 새로고침시 스크롤 위치 */
+        history.scrollRestoration = "manual"
+
+
+        /* 아래는 스크롤 애니메이션 */
+        const saDefaultMargin = 300;
+        let saTriggerMargin = 0;
+        let saTriggerHeight = 0;
+        const saElementList = document.querySelectorAll('.sa');
+
+        const saFunc = function() {
+        for (const element of saElementList) {
+            if (!element.classList.contains('show')) {
+            if (element.dataset.saMargin) {
+                saTriggerMargin = parseInt(element.dataset.saMargin);
+            } else {saTriggerMargin = saDefaultMargin;}
+
+            if (element.dataset.saTrigger) {saTriggerHeight = document.querySelector(element.dataset.saTrigger).getBoundingClientRect().top + saTriggerMargin;
+            } else {saTriggerHeight = element.getBoundingClientRect().top + saTriggerMargin;}
+
+            if (window.innerHeight > saTriggerHeight) {
+                let delay = (element.dataset.saDelay) ? element.dataset.saDelay : 0;
+                setTimeout(function() {
+                element.classList.add('show');
+                }, delay);
+            }}
+        }}
+        window.addEventListener('load', saFunc);
+        window.addEventListener('scroll', saFunc);
+    </script>
+</body>
+</html>

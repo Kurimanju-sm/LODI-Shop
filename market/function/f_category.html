@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LODI Shop</title>
+    <link href="../resources/css/bootstrap.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="../resources/imgs/market/icon.png">
+    <header style="background-color: #ffffff;">
+      <nav class="navbar navbar-expand-lg" style="padding-bottom: 0; background-color: white; width: 100%; display: block;">
+        <div class="navMargin">
+
+          <div style="float: left; margin-left: 20px; display: flex;">
+            <a class="nav-link" href="../function/download.html" style="font-size: 14px; width: 100px; display: flex;"><img src="../resources/imgs/market/icon.png" style="width: 15px; height: 15px; margin-top: 3px; margin-right: 5px;">앱다운로드</a>
+            <a class="nav-link cursor" onclick="alert('Ctrl + D 키를 누르면 즐겨찾기에 추가하실 수 있습니다.')" style="margin-left: 10px; font-size: 14px; width: 100px; display: flex;"><svg xmlns="http://www.w3.org/2000/svg" style="margin-top: 2px; margin-right: 5px;" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/></svg>즐겨찾기</a>
+          </div>
+          <div style="float: right;">
+            <a class="nav-link" href="../account/loginForm.html" style="font-size: 14px; width: 50px; color: #8b8b8b;">로그인</a>
+          </div>
+
+        </div>
+
+        <hr style="margin: 0; margin-top: 25px; height: 1px; border: 0; background: linear-gradient(45deg, #ff009d, #00fff2);">
+        
+        <div class="navMargin" style="width: 100%; margin-top: 25px; margin-bottom: 15px;">
+          
+          <div style="display: inline-flex; width: 100%;">
+            
+            <div style="display: flex; width: 58%;">
+              <a class="navbar-brand" href="../main.html"><img src="../resources/imgs/market/logo_2.png" style="margin-left: 10px; margin-right: 10px;">LODI Shop</a>
+              <div id="searchDiv" style="display: flex; width: 100%;">
+                <input id="searchInput" type="search" placeholder=" 상품명 검색" aria-label="Search" onKeypress="javascript:if(event.keyCode==13) {search_onclick_submit}" style="width: 87%; height: 40px; margin-top: 9px; border: none; height: 30px; margin-left: 10px;">
+                <div class="cursor" style="width: 30px; height: 30px; margin-top: 8px;"><svg class="searchQ" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16" style="color: rgb(255, 216, 250);"><path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z"/><path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z"/></svg></div>
+              </div>
+            </div>
+
+          </div>
+          <div style="display: flex;">
+            <div>
+              <button type="button" data-bs-toggle="collapse" data-bs-target="#menu1" aria-controls="menu1" aria-expanded="false" style="border: 0; background-color: #fff;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/></svg></span>
+              </button>
+              <div class="collapse" id="menu1" style="margin-left: 15px;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <div class="dropdown">
+                      <button class="btn dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; margin: 0px; padding: 0px; margin-top: 8px; margin-bottom: 8px; margin-left: 0; margin-right: 5px;">
+                        카테고리
+                      </button>
+                      <ul id="categoryList" class="dropdown-menu dropend" aria-labelledby="dropdownMenuButton" style="margin-top: -8px; background-color: #ffffffe1; width: 100px;">
+                        <li><button type="button" id="mGroup_Dropdown" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: 0; color: #000; margin:0;" onclick="location.href='./function/m_category.html'">
+                          남성그룹
+                        </button>
+                          <div id="GroupList" class="dropdown-menu" x-placement="right-start" style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform; background-color: #ffffffe1; margin-left: -8px;">
+                            <a class="dropdown-item" href="#">방탄소년단</a>
+                            <a class="dropdown-item" href="#">NCT</a>
+                            <a class="dropdown-item" href="#">세븐틴</a>
+                            <a class="dropdown-item" href="#">슈퍼주니어</a>
+                            <a class="dropdown-item" href="#">엑소</a>
+                            <a class="dropdown-item" href="#">스트레이키즈</a>
+                            <a class="dropdown-item" href="#">더보이즈</a>
+                            <a class="dropdown-item" href="#">비투비</a>
+                            <a class="dropdown-item" href="#">아스트로</a>
+                            <a class="dropdown-item" href="#">빅뱅</a>
+                            <a class="dropdown-item" href="#">엔하이픈</a>
+                            <a class="dropdown-item" href="#">투모로우바이투게더</a>
+                            <a class="dropdown-item" href="#">트레저</a>
+                            <a class="dropdown-item" href="#">샤이니</a>
+                            <a class="dropdown-item" href="#">.더보기</a>
+                          </div>
+                          </li>
+                        <li><button type="button" id="fGroup_Dropdown" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: 0; color: #000; margin:0;" onclick="location.href='../function/f_category.html'">
+                          여성그룹
+                        </button>
+                          <div id="GroupList" class="dropdown-menu" x-placement="right-start" style="position: absolute; transform: translate3d(111px, 0px, 0px); top: 0px; left: 0px; will-change: transform; background-color: #ffffffe1; margin-left: -8px;">
+                            <a class="dropdown-item" href="./function/category_html/newjeans.html">NewJeans</a>
+                            <a class="dropdown-item" href="#">LE SSERAFIM</a>
+                            <a class="dropdown-item" href="#">IVE</a>
+                            <a class="dropdown-item" href="#">프로미스나인</a>
+                            <a class="dropdown-item" href="#">오마이걸</a>
+                            <a class="dropdown-item" href="#">aespa</a>
+                            <a class="dropdown-item" href="#">STAYC</a>
+                            <a class="dropdown-item" href="#">NMIXX</a>
+                            <a class="dropdown-item" href="#">TWICE</a>
+                            <a class="dropdown-item" href="#">Red Velvet</a>
+                            <a class="dropdown-item" href="#">BLACKPINK</a>
+                            <a class="dropdown-item" href="#">빌리</a>
+                            <a class="dropdown-item" href="#">마마무</a>
+                            <a class="dropdown-item" href="#">(여자)아이들</a>
+                            <a class="dropdown-item" href="../function/f_category.html">더보기</a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"/></svg>
+                      시세검색
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+                      사기조회
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-video" viewBox="0 0 16 16"><path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/><path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z"/></svg>
+                      고객지원
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/></svg>
+                      마이페이지
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-balloon-heart" viewBox="0 0 16 16"><path fill-rule="evenodd" d="m8 2.42-.717-.737c-1.13-1.161-3.243-.777-4.01.72-.35.685-.451 1.707.236 3.062C4.16 6.753 5.52 8.32 8 10.042c2.479-1.723 3.839-3.29 4.491-4.577.687-1.355.587-2.377.236-3.061-.767-1.498-2.88-1.882-4.01-.721L8 2.42Zm-.49 8.5c-10.78-7.44-3-13.155.359-10.063.045.041.089.084.132.129.043-.045.087-.088.132-.129 3.36-3.092 11.137 2.624.357 10.063l.235.468a.25.25 0 1 1-.448.224l-.008-.017c.008.11.02.202.037.29.054.27.161.488.419 1.003.288.578.235 1.15.076 1.629-.157.469-.422.867-.588 1.115l-.004.007a.25.25 0 1 1-.416-.278c.168-.252.4-.6.533-1.003.133-.396.163-.824-.049-1.246l-.013-.028c-.24-.48-.38-.758-.448-1.102a3.177 3.177 0 0 1-.052-.45l-.04.08a.25.25 0 1 1-.447-.224l.235-.468ZM6.013 2.06c-.649-.18-1.483.083-1.85.798-.131.258-.245.689-.08 1.335.063.244.414.198.487-.043.21-.697.627-1.447 1.359-1.692.217-.073.304-.337.084-.398Z"/></svg>
+                      아이돌 이벤트
+                    </a>
+                  </li>
+                </ul>
+              </div>
+          </div>
+          
+        </div>
+      </nav>
+      <hr style="margin: 0; margin-top: 25px; height: 1px; border: 0; background: linear-gradient(-45deg, #ff009d, #00fff2)">
+    </header>
+    
+    <style>
+      *{box-sizing: border-box;}
+      *{margin:0; padding:0;}
+      a{text-decoration: none;color:black;} /* a텍스트 앞에 붙는 . 제거 */
+      ul{list-style: none;} /* ul의 리스트 스타일 제거 */
+
+      .nav-up{top: -200px} /* 헤더 스크롤 이벤트 관련 */
+
+      .cursor:hover{
+        cursor: pointer;
+      }
+
+      .searchQ:hover{
+        color: rgb(255, 129, 207) !important;
+      }
+
+      header{
+        z-index: 20;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        transition: top 0.2s ease-in-out;
+      }
+
+      #mGroup_Dropdown:hover ~ #GroupList{
+        display: block;
+      }
+      #GroupList:hover{
+        display: block;
+      }
+      #fGroup_Dropdown:hover ~ #GroupList{
+        display: block;
+      }
+
+      #body_main{
+        margin: 10%;
+        margin-top: 214px;
+        margin-bottom: 20px;
+      }
+
+      .IdolLogo_img{
+        width: 196px;
+        height: auto;
+        object-fit: cover;
+      }
+      
+      .Wimg{transition: all .5s ease-in-out; background-color: #0000003f; border-radius: 10px;}
+      .Bimg{position: absolute; top:0px; left:0px; opacity: 0; transition: all .3s ease-in-out;}
+
+      .backdrop:hover{
+        cursor:pointer;
+      }
+
+      #container div:hover > .backdrop{
+        opacity: 1;
+      }
+
+      #container div:hover > .Bimg{
+        opacity: 1;
+      }
+
+      #container div:hover > .Wimg{
+        opacity: 0;
+      }
+
+      #container {
+        background-color: rgba(226, 226, 226, 0.397);
+        margin: 20 auto; /* container 영역을 브라우저에서 가운데 정렬하기 위해 auto설정 */
+        text-align: center; /* inline-block화 된 div들을 텍스트 마냥 center로 정렬*/
+      }
+
+      .sideBanner {
+        z-index: 10;
+        position: absolute;
+        height: auto;
+        top: 114px;
+        background-color: #eeeeee;
+        color: #000000;
+      }
+
+      .sideBannerImg{
+        width: 10vw;
+        height: auto;
+      }
+
+      #container .backdiv{
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        display: inline-block; /* 가로로 나열하기 위해 block레벨 요소를 inline-block레벨로 전환 */
+        margin: 20px;
+        width: 200px; /* 영역 크기 지정 안해주면 inline 레벨처럼 내용물 만큼만 차지하기 때문에 크기 지정 */
+        height: 60px; /* 영역 크기 지정 안해주면 inline 레벨처럼 내용물 만큼만 차지하기 때문에 크기 지정 */
+        border-radius: 12px;
+        border: 2px solid rgb(0, 0, 0);
+        font-size: 25px;
+      }
+
+      .backdrop{
+        border-radius: 10px;
+        background-size: cover;
+        transition: all 0.3s ease-in-out;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+      }
+      
+      #searchDiv{
+        width: 40%;
+        height: 50px;
+        border: 2px solid transparent;
+        border-radius: 30px;
+        background-image: linear-gradient(#ffffff, #ffffff), linear-gradient(to right, #fbff1bbe, #ffcdf3aa, #65d3ffaa);
+        background-origin: border-box;
+        background-clip: content-box, border-box;
+      }
+
+      .navMargin{
+        margin-left: 10%;
+        margin-right: 10%;
+      }
+
+      .in_con{
+        background-size: cover;
+      }
+
+      @media screen and (min-width: 1350px) {
+        #body_main{
+          margin: 14% !important;
+          margin-top: 214px !important;
+          margin-bottom: 0px !important;
+        }
+        .navMargin{
+          margin-left: 14% !important;
+          margin-right: 14% !important;
+        }
+      }
+      @media screen and (max-width: 950px) {
+        #searchInput{
+          width: 80% !important;
+        }
+        .sideBanner{
+          display: none;
+        }
+      }
+
+      @media screen and (max-width: 650px) {
+        #searchInput{
+          width: 70% !important;
+        }
+      }
+
+      /*======= 아래는 스크롤바 관련 CSS =======*/
+      html::-webkit-scrollbar {
+        width: 10px;
+      }
+      html::-webkit-scrollbar-thumb {
+        background-image: linear-gradient(-135deg, #ffbae5, #e6b1ff);
+        border-radius: 10px;
+        background-clip: padding-box;
+        border: 2px solid transparent;
+      }
+      html::-webkit-scrollbar-track {
+        background-color: transparent;
+        box-shadow: inset 0px 0px 5px white;
+      }
+    </style>
+
+</head>
+<body>
+  <div class="sideBanner">
+    <a href="https://www.goobne.co.kr/menu/new?gubun=lesserafim_0515" target="_blank" rel="noreferrer noopener"><img src="../resources/imgs/ad/sideBannerImg.png" class="sideBannerImg"></a>
+  </div>
+  <div id="body_main">
+    <div id="topSlideBanner" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="4" aria-label="Slide 5"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="5" aria-label="Slide 6"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="6" aria-label="Slide 7"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="7" aria-label="Slide 8"></button>
+        <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="8" aria-label="Slide 9"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <!-- <video autoplay muted loop class="d-block w-100"><source src="./imgs_market/slidebannerimg01.mp4" type="video/mp4">ERROR</video> -->
+          <a href="https://mall.lottechilsung.co.kr/display/displayShop.lecs?displayNo=CF1A07A01&stonType=P" target="_blank" rel="noreferrer noopener"><img src="../resources/imgs/ad/slidebannerimg01.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.ekdp.com/brand/view.asp?brandID=oksusutea" target="_blank" rel="noreferrer noopener"><img src="../resources/imgs/ad/slidebannerimg02.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.ekdp.com/brand/view.asp?brandID=vita500" target="_blank" rel="noreferrer noopener"><img src="../resources/imgs/ad/slidebannerimg03.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.mcdonalds.co.kr/kor/main.do" target="_blank" rel="noreferrer noopener"><img src="../resources/imgs/ad/slidebannerimg04.png" class="d-block w-100" alt="..."></a>  
+        </div>
+        <div class="carousel-item">
+          <a href="https://weverseshop.io/ko/shop/GL_KRW/artists/35/categories/615" target="_blank" rel="noreferrer noopener"><img src="../resources/imgs/ad/slidebannerimg05.png" class="d-block w-100" alt="..."></a>  
+        </div>
+        <div class="carousel-item">
+          <a href="https://www.cubee.co.kr/m/product.html?branduid=10372611" target="_blank" rel="noreferrer noopner"><img src="../resources/imgs/ad/slidebannerimg06.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://twitter.com/8_OHMYGIRL" target="_blank" rel="noreferrer noopner"><img src="../resources/imgs/ad/slidebannerimg07.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://twitter.com/eunchae_diary" target="_blank" rel="noreferrer noopner"><img src="../resources/imgs/ad/slidebannerimg08.png" class="d-block w-100" alt="..."></a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://thejypshop.com/nmixx.html#none" target="_blank" rel="noreferrer noopner"><img src="../resources/imgs/ad/slidebannerimg09.png" class="d-block w-100" alt="..."></a>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#topSlideBanner" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#topSlideBanner" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  
+    <div id="container">
+      <div id="search_category_div" style="width: 100%; padding: 10px; margin-bottom: 10px; height: 30px;">
+        <input type="text" id="categorySearch" onkeyup="filter()" placeholder="검색어 입력" style="float: right; margin-right: 25px;">
+      </div> 
+      <div id="category_list" style="width: 100%;">
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/Newjeans_B.png);">
+          <span class="group_en" style="display: none;">newjeans</span>
+          <span class="group_kr" style="display: none;">뉴진스 ㄵㅅ ㄴㅈㅅ</span>
+          <img src="../resources/imgs/idol_logo/NewJeans_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/Newjeans_A.png);" onclick="category_click('newjeans')">
+            <img src="../resources/imgs/idol_logo/NewJeans_logo_B.png" class="IdolLogo_img Bimg"> 
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/LESSERAFIM_B.png);">
+          <span class="group_en" style="display: none;">lesserafim</span>
+          <span class="group_kr" style="display: none;">르세라핌 ㄽㄿ ㄹㅅㄹㅍ ㄽㄹㅍ ㄹㅅㄿ</span>
+          <img src="../resources/imgs/idol_logo/LESSERAFIM_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/LESSERAFIM_A.png);" onclick="category_click('lesserafim')">
+            <img src="../resources/imgs/idol_logo/LESSERAFIM_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>    
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/IVE_B.png);" >
+          <span class="group_en" style="display: none;">ive</span>
+          <span class="group_kr" style="display: none;">아이브 ㅇㅇㅂ</span>
+          <img src="../resources/imgs/idol_logo/IVE_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/IVE_A.png);" onclick="category_click('ive')">
+            <img src="../resources/imgs/idol_logo/IVE_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>    
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/Fromis_9_B.png);">
+          <span class="group_en" style="display: none;">fromis9</span>
+          <span class="group_kr" style="display: none;">프로미스나인 프로미스9 ㅍㄻㅅㄴㅇ ㅍㄹㅁㅅㄴㅇ ㅍㄻㅅ9 ㅍㄹㅁㅅ9</span>
+          <img src="../resources/imgs/idol_logo/Fromis_9_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/Fromis_9_A.png);" onclick="category_click('fromis9')">
+            <img src="../resources/imgs/idol_logo/Fromis_9_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/ohmygirl_B.png);">
+          <span class="group_en" style="display: none;">ohmygirl</span>
+          <span class="group_kr" style="display: none;">오마이걸 ㅇㅁㅇㄱ</span>
+          <img src="../resources/imgs/idol_logo/ohmygirl_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/ohmygirl_A.png);" onclick="category_click('ohmygirl')">
+            <img src="../resources/imgs/idol_logo/ohmygirl_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/aespa_B.png);">
+          <span class="group_en" style="display: none;">aespa</span>
+          <span class="group_kr" style="display: none;">에스파 ㅇㅅㅍ</span>
+          <img src="../resources/imgs/idol_logo/aespa_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/aespa_A.png);" onclick="category_click('aespa')">
+            <img src="../resources/imgs/idol_logo/aespa_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/StayC_B.png);">
+          <span class="group_en" style="display: none;">stayc</span>
+          <span class="group_kr" style="display: none;">스테이씨 스테이시 ㅅㅌㅇㅅ ㅅㅌㅇㅆ</span>
+          <img src="../resources/imgs/idol_logo/stayc_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/StayC_A.png);" onclick="category_click('stayc')">
+            <img src="../resources/imgs/idol_logo/stayc_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/NMIXX_B.png);">
+          <span class="group_en" style="display: none;">nmixx</span>
+          <span class="group_kr" style="display: none;">엔믹스 앤믹스 ㅇㅁㅅ </span>
+          <img src="../resources/imgs/idol_logo/NMIXX_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/NMIXX_A.png);" onclick="category_click('nmixx')">
+            <img src="../resources/imgs/idol_logo/NMIXX_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/TWICE_B.png);">
+          <span class="group_en" style="display: none;">twice</span>
+          <span class="group_kr" style="display: none;">트와이스 ㅌㅇㅇㅅ</span>
+          <img src="../resources/imgs/idol_logo/twice_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/TWICE_A.png);" onclick="category_click('twice')">
+            <img src="../resources/imgs/idol_logo/twice_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/RedVelVet_B.png);">
+          <span class="group_en" style="display: none;">redvelvet</span>
+          <span class="group_kr" style="display: none;">레드벨벳 레드밸뱃 레드밸벳 레드벨뱃 ㄹㄷㅃ ㄹㄷㅂㅂ</span>
+          <img src="../resources/imgs/idol_logo/redvelvet_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/RedVelVet_A.png);" onclick="category_click('redvelvet')">
+            <img src="../resources/imgs/idol_logo/redvelvet_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/BLACKPINK_B.png);">
+          <span class="group_en" style="display: none;">blackpink black pink</span>
+          <span class="group_kr" style="display: none;">블랙핑크 ㅂㄹㅍㅋ 블랙 핑크 ㅂㄹ ㅍㅋ</span>
+          <img src="../resources/imgs/idol_logo/blackpink_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/BLACKPINK_A.png);" onclick="category_click('blackpink')">
+            <img src="../resources/imgs/idol_logo/blackpink_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/Billlie_B.png);">
+          <span class="group_en" style="display: none;">billlie</span>
+          <span class="group_kr" style="display: none;">빌리 ㅂㄹ</span>
+          <img src="../resources/imgs/idol_logo/billlie_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/Billlie_A.png);" onclick="category_click('billlie')">
+            <img src="../resources/imgs/idol_logo/billlie_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/MAMAMOO_B.png);">
+          <span class="group_en" style="display: none;">mamamoo</span>
+          <span class="group_kr" style="display: none;">마마무 ㅁㅁㅁ</span>
+          <img src="../resources/imgs/idol_logo/mamamoo_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/MAMAMOO_A.png);" onclick="category_click('mamamoo')">
+            <img src="../resources/imgs/idol_logo/mamamoo_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/idle_B.png);">
+          <span class="group_en" style="display: none;">idle gidle g-idle g(i)dle </span>
+          <span class="group_kr" style="display: none;">(여자)아이들 ㅇㅇㄷ ㅇㅈㅇㅇㄷ 여자아이들 (ㅇㅈ)ㅇㅇㄷ</span>
+          <img src="../resources/imgs/idol_logo/idle_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/idle_A.png);" onclick="category_click('idle')">
+            <img src="../resources/imgs/idol_logo/idle_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/kep1er_B.png);">
+          <span class="group_en" style="display: none;">kepler kep1er</span>
+          <span class="group_kr" style="display: none;">케플러 ㅋㅍㄹ</span>
+          <img src="../resources/imgs/idol_logo/kep1er_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/kep1er_A.png);" onclick="category_click('kep1er')">
+            <img src="../resources/imgs/idol_logo/kep1er_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/yena_B.png);">
+          <span class="group_en" style="display: none;">choiyena</span>
+          <span class="group_kr" style="display: none;">최예나 ㅊㅇㄴ</span>
+          <img src="../resources/imgs/idol_logo/yena_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/yena_A.png);" onclick="category_click('choiyena')">
+            <img src="../resources/imgs/idol_logo/yena_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/joyuri_B.png);">
+          <span class="group_en" style="display: none;">joyuri</span>
+          <span class="group_kr" style="display: none;">조유리 ㅈㅇㄹ</span>
+          <img src="../resources/imgs/idol_logo/joyuri_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/joyuri_A.png);" onclick="category_click('joyuri')">
+            <img src="../resources/imgs/idol_logo/joyuri_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/kwoneunbi_B.png);">
+          <span class="group_en" style="display: none;">kwoneunbi</span>
+          <span class="group_kr" style="display: none;">권은비 ㄱㅇㅂ</span>
+          <img src="../resources/imgs/idol_logo/kwoneunbi_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/kwoneunbi_A.png);" onclick="category_click('kwoneunbi')">
+            <img src="../resources/imgs/idol_logo/kwoneunbi_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/LOOΠΔ_B.png);">
+          <span class="group_en" style="display: none;">LOOΠΔ loona</span>
+          <span class="group_kr" style="display: none;">이달의소녀 이달의 소녀 ㅇㄷㅇㅅㄴ ㅇㄷㅇ ㅅㄴ 루나 ㄹㄴ</span>
+          <img src="../resources/imgs/idol_logo/LOOΠΔ_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/LOOΠΔ_A.png);" onclick="category_click('LOOΠΔ')">
+            <img src="../resources/imgs/idol_logo/LOOΠΔ_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/wjsn_B.png);">
+          <span class="group_en" style="display: none;">wjsn</span>
+          <span class="group_kr" style="display: none;">우주소녀 우주 소녀 ㅇㅈㅅㄴ ㅇㅈ ㅅㄴ</span>
+          <img src="../resources/imgs/idol_logo/wjsn_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/wjsn_A.png);" onclick="category_click('wjsn')">
+            <img src="../resources/imgs/idol_logo/wjsn_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div> 
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/leechaeyeon_B.png );">
+          <span class="group_en" style="display: none;">leechaeyeon</span>
+          <span class="group_kr" style="display: none;">이채연 ㅇㅊㅇ</span>
+          <img src="../resources/imgs/idol_logo/leechaeyeon_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/leechaeyeon_A.png);" onclick="category_click('leechaeyeon')">
+            <img src="../resources/imgs/idol_logo/leechaeyeon_logo_B.png" class="IdolLogo_img Bimg">
+          </div>  
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/izone_B.png );">
+          <span class="group_en" style="display: none;">izone iz*one</span>
+          <span class="group_kr" style="display: none;">아이즈원 아이 즈원 ㅇㅇㅈㅇ ㅇㅇ ㅈㅇ</span>
+          <img src="../resources/imgs/idol_logo/izone_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/izone_A.png);" onclick="category_click('izone')">
+            <img src="../resources/imgs/idol_logo/izone_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/itzy_B.png );">
+          <span class="group_en" style="display: none;">itzy </span>
+          <span class="group_kr" style="display: none;">있지 잇지 ㅇㅈ</span>
+          <img src="../resources/imgs/idol_logo/itzy_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/itzy_A.png);" onclick="category_click('itzy')">
+            <img src="../resources/imgs/idol_logo/itzy_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/weeekly_B.png );">
+          <span class="group_en" style="display: none;">weeekly </span>
+          <span class="group_kr" style="display: none;">위클리 ㅇㅋㄹ</span>
+          <img src="../resources/imgs/idol_logo/weeekly_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/weeekly_A.png);" onclick="category_click('weeekly')">
+            <img src="../resources/imgs/idol_logo/weeekly_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/dreamcatcher_B.png );">
+          <span class="group_en" style="display: none;">dreamcatcher </span>
+          <span class="group_kr" style="display: none;">드림캐쳐 드림캐처 드림 캐쳐 드림 캐처 ㄷㄹㅋㅊ ㄷㄹ ㅋㅊ</span>
+          <img src="../resources/imgs/idol_logo/dreamcatcher_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/dreamcatcher_A.png);" onclick="category_click('dreamcatcher')">
+            <img src="../resources/imgs/idol_logo/dreamcatcher_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/momoland_B.png );">
+          <span class="group_en" style="display: none;">momoland momo land </span>
+          <span class="group_kr" style="display: none;">모모랜드 모모 랜드 ㅁㅁㄹㄷ ㅁㅁ ㄹㄷ</span>
+          <img src="../resources/imgs/idol_logo/momoland_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/momoland_A.png);" onclick="category_click('momoland')">
+            <img src="../resources/imgs/idol_logo/momoland_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/dia_B.png );">
+          <span class="group_en" style="display: none;">dia </span>
+          <span class="group_kr" style="display: none;">다이아 ㄷㅇㅇ</span>
+          <img src="../resources/imgs/idol_logo/dia_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/dia_A.png);" onclick="category_click('dia')">
+            <img src="../resources/imgs/idol_logo/dia_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/rocketpunch_B.png );">
+          <span class="group_en" style="display: none;">rocketpunch rocket punch </span>
+          <span class="group_kr" style="display: none;">로켓펀치 로캣펀치 로켓 펀치 로캣 펀치 ㄹㅋㅍㅊ ㄹㅋ ㅍㅊ</span>
+          <img src="../resources/imgs/idol_logo/rocketpunch_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/rocketpunch_A.png);" onclick="category_click('rocketpunch')">
+            <img src="../resources/imgs/idol_logo/rocketpunch_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/girlsday_B.png );">
+          <span class="group_en" style="display: none;">girlsday girls day </span>
+          <span class="group_kr" style="display: none;">걸스데이 걸스 데이 걸데 ㄱㅅㄷㅇ ㄱㅅ ㄷㅇ ㄱㄷ</span>
+          <img src="../resources/imgs/idol_logo/girlsday_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/girlsday_A.png);" onclick="category_click('girlsday')">
+            <img src="../resources/imgs/idol_logo/girlsday_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/bravegirls_B.png );">
+          <span class="group_en" style="display: none;">bravegirls brave girls </span>
+          <span class="group_kr" style="display: none;">브레이브걸스 브레이브 걸스 쁘걸 ㅂㄹㅇㅂㄱㅅ ㅂㄹㅇㅂ ㄱㅅ ㅃㄱ</span>
+          <img src="../resources/imgs/idol_logo/bravegirls_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/bravegirls_A.png);" onclick="category_click('bravegirls')">
+            <img src="../resources/imgs/idol_logo/bravegirls_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/fx_B.png );">
+          <span class="group_en" style="display: none;">fx </span>
+          <span class="group_kr" style="display: none;">에프엑스 에프 엑스 ㅇㅍㅇㅅ ㅇㅍ ㅇㅅ</span>
+          <img src="../resources/imgs/idol_logo/fx_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/fx_A.png);" onclick="category_click('fx')">
+            <img src="../resources/imgs/idol_logo/fx_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/kara_B.png );">
+          <span class="group_en" style="display: none;">kara </span>
+          <span class="group_kr" style="display: none;">카라 ㅋㄹ</span>
+          <img src="../resources/imgs/idol_logo/kara_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/kara_A.png);" onclick="category_click('kara')">
+            <img src="../resources/imgs/idol_logo/kara_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/girlsgeneration_B.png );">
+          <span class="group_en" style="display: none;">girlsgeneration </span>
+          <span class="group_kr" style="display: none;">소녀시대 소녀 시대 소시 ㅅㄴㅅㄷ ㅅㄴ ㅅㄷ</span>
+          <img src="../resources/imgs/idol_logo/girlsgeneration_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/girlsgeneration_A.png);" onclick="category_click('girlsgeneration')">
+            <img src="../resources/imgs/idol_logo/girlsgeneration_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/clc_B.png );">
+          <span class="group_en" style="display: none;">clc </span>
+          <span class="group_kr" style="display: none;">씨엘씨 시엘시 ㅆㅇㅆ ㅅㅇㅅ</span>
+          <img src="../resources/imgs/idol_logo/clc_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/clc_A.png);" onclick="category_click('clc')">
+            <img src="../resources/imgs/idol_logo/clc_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/laboum_B.png );">
+          <span class="group_en" style="display: none;">laboum </span>
+          <span class="group_kr" style="display: none;">라붐 ㄹㅂ</span>
+          <img src="../resources/imgs/idol_logo/laboum_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/laboum_A.png);" onclick="category_click('laboum')">
+            <img src="../resources/imgs/idol_logo/laboum_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/purplekiss_B.png );">
+          <span class="group_en" style="display: none;">purplekiss </span>
+          <span class="group_kr" style="display: none;">퍼플키스 퍼플 키스 ㅍㅍㅋㅅ ㅍㅍ ㅋㅅ</span>
+          <img src="../resources/imgs/idol_logo/purplekiss_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/purplekiss_A.png);" onclick="category_click('purplekiss')">
+            <img src="../resources/imgs/idol_logo/purplekiss_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/wooah_B.png );">
+          <span class="group_en" style="display: none;">wooah woo ah </span>
+          <span class="group_kr" style="display: none;">우아 ㅇㅇ</span>
+          <img src="../resources/imgs/idol_logo/wooah_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/wooah_A.png);" onclick="category_click('wooah')">
+            <img src="../resources/imgs/idol_logo/wooah_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/wekimeki_B.png );">
+          <span class="group_en" style="display: none;">wekimeki weki meki </span>
+          <span class="group_kr" style="display: none;">위키미키 위키 미키 ㅇㅋㅁㅋ ㅇㅋ ㅁㅋ</span>
+          <img src="../resources/imgs/idol_logo/wekimeki_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/wekimeki_A.png);" onclick="category_click('wekimeki')">
+            <img src="../resources/imgs/idol_logo/wekimeki_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/h1key_B.png );">
+          <span class="group_en" style="display: none;">h1key hikey </span>
+          <span class="group_kr" style="display: none;">하이키 ㅎㅇㅋ</span>
+          <img src="../resources/imgs/idol_logo/h1key_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/h1key_A.png);" onclick="category_click('h1key')">
+            <img src="../resources/imgs/idol_logo/h1key_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/missa_B.png );">
+          <span class="group_en" style="display: none;">missa miss_a miss a </span>
+          <span class="group_kr" style="display: none;">미쓰에이 미쓰 에이 ㅁㅆㅇㅇ ㅁㅆ ㅇㅇ</span>
+          <img src="../resources/imgs/idol_logo/missa_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/missa_A.png);" onclick="category_click('missa')">
+            <img src="../resources/imgs/idol_logo/missa_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/sistar_B.png );">
+          <span class="group_en" style="display: none;">sistar </span>
+          <span class="group_kr" style="display: none;">씨스타 ㅆㅅㅌ</span>
+          <img src="../resources/imgs/idol_logo/sistar_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/sistar_A.png);" onclick="category_click('sistar')">
+            <img src="../resources/imgs/idol_logo/sistar_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/apink_B.png );">
+          <span class="group_en" style="display: none;">apink A pink </span>
+          <span class="group_kr" style="display: none;">에이핑크 에이 핑크 ㅇㅇㅍㅋ ㅇㅇ ㅍㅋ</span>
+          <img src="../resources/imgs/idol_logo/apink_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/apink_A.png);" onclick="category_click('apink')">
+            <img src="../resources/imgs/idol_logo/apink_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/2ne1_B.png );">
+          <span class="group_en" style="display: none;">2ne1 </span>
+          <span class="group_kr" style="display: none;">투애니원 투 애니원 투 애니 원 투애니 원 ㅌㅇㄴㅇ ㅌ ㅇㄴㅇ ㅌ ㅇㄴ ㅇ ㅌㅇㄴ ㅇ</span>
+          <img src="../resources/imgs/idol_logo/2ne1_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/2ne1_A.png);" onclick="category_click('2ne1')">
+            <img src="../resources/imgs/idol_logo/2ne1_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+        <div class="in_con backdiv listCategory" style="background-image: url(../resources/imgs/idol_pic/secret_B.png );">
+          <span class="group_en" style="display: none;">secret </span>
+          <span class="group_kr" style="display: none;">시크릿 ㅅㅋㄹ</span>
+          <img src="../resources/imgs/idol_logo/secret_logo_W.png" class="IdolLogo_img Wimg">
+          <div class="backdrop" style="background-image: url(../resources/imgs/idol_pic/secret_A.png);" onclick="category_click('secret')">
+            <img src="../resources/imgs/idol_logo/secret_logo_B.png" class="IdolLogo_img Bimg">
+          </div>
+        </div>
+      </div>
+  
+    <div id="footer" class="container">
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Social</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Instagram</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Facebook</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Twitter</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Youtube</a></li>
+            </ul>
+          </div>
+      
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Information</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">개인정보처리방침</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">이용약관</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">분쟁처리절차</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">청소년보호정책</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">사업자정보확인</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">게시글 개인정보 수집 및 이용 안내</a></li>
+            </ul>
+          </div>
+      
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Contact</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">메일: stave123@naver.com</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">전화: 010-5038-9072</a></li>
+              <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">주소: 알 수 없음.</a></li>
+            </ul>
+          </div>
+      
+          <div class="col-md-5 offset-md-1 mb-3">
+            <form>
+              <h5>최신 정보에 대한 메일 구독</h5>
+              <p>물품에 대한 최신 정보를 메일로 받아보세요.</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email address</label>
+                <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                <button class="btn btn-primary" type="button">Subscribe</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+          <p>© 2023 (팀)은채야 기특해요 All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3"><a class="link-dark" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16"><path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/></svg></use></svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg></a></li>
+            <li class="ms-3"><a class="link-dark" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg></a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+  <script src="../resources/js/bootstrap.js"></script>
+
+  <script>
+    /* 새로고침시 스크롤 초기화 */
+    history.scrollRestoration = "manual";
+
+    /* 다음은 헤더 스크롤 이벤트 */
+    var didScroll;
+    var lastScrollTop = 0;
+    var delta = 5;
+    var navbarHeight = $('header').outerHeight();
+
+    $(window).scroll(function(event){didScroll = true;});
+    setInterval(function(){if(didScroll) {hasScrolled(); didScroll=false;}}, 250);
+        
+    function hasScrolled() {
+        var st = $(this).scrollTop();
+        if(Math.abs(lastScrollTop - st) <= delta)
+            return;
+        if (st > lastScrollTop && st > navbarHeight){
+            $('header').removeClass('nav-down').addClass('nav-up');
+        } else {
+            if(st + $(window).height() < $(document).height()) {$('header').removeClass('nav-up').addClass('nav-down');}
+        }lastScrollTop = st;
+    }
+
+    
+    /* 다음은 카테고리 div 클릭 이벤트 */
+    function category_click(name){
+      var link = './category_html/'+name+'.html';
+      window.location.href = link;
+    }
+
+    /* 다음은 input 검색 이벤트 */
+    function filter(){
+      let search = document.getElementById("categorySearch").value.toLowerCase();
+      let listCategory = document.getElementsByClassName("listCategory");
+
+      for(let i=0; i<listCategory.length; i++){
+        group_en = listCategory[i].getElementsByClassName("group_en");
+        group_kr = listCategory[i].getElementsByClassName("group_kr");
+        if(group_en[0].innerHTML.toLowerCase().includes(search) || group_kr[0].innerHTML.toLowerCase().includes(search)){
+        // if(group_en[0].innerHTML.toLowerCase().indexOf(search) != -1 || group_kr[0].innerHTML.toLowerCase().indexOf(search) != -1 ){
+          listCategory[i].style.display = "inline-block"
+        }else{
+          listCategory[i].style.display = "none"
+        }
+      }
+    }
+
+    /* 다음은 사이드 플로팅 배너 */
+    var floatPosition = parseInt($(".sideBanner").css('top'))
+
+    // scroll 인식
+    $(window).scroll(function() {
+      
+        // 현재 스크롤 위치
+        var currentTop = $(window).scrollTop();
+        var bannerTop = currentTop + floatPosition  + 100 + "px";
+
+        //이동 애니메이션
+        $(".sideBanner").stop().animate({
+          "top" : bannerTop
+        }, 500);
+
+    }).scroll();
+  </script>
+  <script type="module" src="/static/js/login.js"></script>
+
+</body>
+</html>

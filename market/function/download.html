@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LODI Shop - 앱 다운로드</title>
+
+    <link href="../resources/css/bootstrap.css" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fafafa;
+            color: #222;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* 헤더 */
+        .download-header {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 18px 10%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .logo img {
+            width: 32px;
+            height: 32px;
+            margin-right: 8px;
+        }
+
+        /* 메인 */
+        .container {
+            max-width: 900px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 45px;
+        }
+
+        /* 다운로드 버튼 영역 */
+        .download-box {
+            background: #fff;
+            border-radius: 18px;
+            padding: 35px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-button {
+            width: 280px;
+            min-height: 85px;
+
+            border: 0;
+            border-radius: 14px;
+
+            background: linear-gradient(45deg, #ff009d, #00d9ff);
+            color: white;
+
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.2s;
+        }
+
+        .download-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+        }
+
+        .download-button .icon {
+            font-size: 30px;
+            margin-right: 15px;
+        }
+
+        .download-button strong {
+            display: block;
+            font-size: 18px;
+        }
+
+        .download-button span {
+            display: block;
+            font-size: 12px;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
+        /* 뒤로가기 */
+        .back-button {
+            display: inline-block;
+
+            margin-top: 35px;
+            padding: 12px 25px;
+
+            border: 1px solid #ddd;
+            border-radius: 25px;
+
+            background: #fff;
+            color: #555;
+
+            transition: 0.2s;
+        }
+
+        .back-button:hover {
+            background: #f3f3f3;
+        }
+
+        /* 안내문 */
+        .notice {
+            margin-top: 35px;
+            font-size: 13px;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        /* 모바일 */
+        @media (max-width: 600px) {
+
+            .download-header {
+                padding: 15px 5%;
+            }
+
+            .container {
+                margin-top: 50px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .download-box {
+                padding: 25px 15px;
+            }
+
+            .download-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 헤더 -->
+    <header class="download-header">
+
+        <a href="../main.html" class="logo">
+
+            <img
+                src="../resources/imgs/market/logo_2.png"
+                alt="LODI Shop"
+            >
+
+            LODI Shop
+
+        </a>
+
+    </header>
+
+
+    <!-- 메인 -->
+    <main class="container">
+
+        <!-- 앱 아이콘 -->
+        <img
+            src="../resources/imgs/market/icon.png"
+            class="app-icon"
+            alt="LODI Shop 앱 아이콘"
+        >
+
+
+        <!-- 제목 -->
+        <h1>
+            LODI Shop 앱 다운로드
+        </h1>
+
+
+        <!-- 설명 -->
+        <p class="description">
+
+            LODI Shop을 앱으로 더 편리하게 이용해보세요.<br>
+
+            원하는 아이돌 굿즈를 쉽고 빠르게 찾아볼 수 있습니다.
+
+        </p>
+
+
+        <!-- 다운로드 버튼 -->
+        <section class="download-box">
+
+            <!-- Android -->
+            <a
+                href="#"
+                class="download-button"
+                onclick="downloadAndroid(event)"
+            >
+
+                <div class="icon">
+                    🤖
+                </div>
+
+                <div>
+
+                    <strong>
+                        Android 앱 설치
+                    </strong>
+
+                    <span>
+                        Google Play에서 다운로드
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- iPhone -->
+            <a
+                href="#"
+                class="download-button"
+                onclick="downloadIOS(event)"
+            >
+
+                <div class="icon">
+                    
+                </div>
+
+                <div>
+
+                    <strong>
+                        iPhone 앱 설치
+                    </strong>
+
+                    <span>
+                        App Store에서 다운로드
+                    </span>
+
+                </div>
+
+            </a>
+
+        </section>
+
+
+        <!-- 안내 -->
+        <p class="notice">
+
+            ※ 현재는 앱 설치 기능을 연결하기 전의 화면입니다.<br>
+
+            실제 앱 파일 또는 스토어 주소가 준비되면
+            버튼의 링크만 변경하면 됩니다.
+
+        </p>
+
+
+        <!-- 메인으로 돌아가기 -->
+        <a
+            href="../main.html"
+            class="back-button"
+        >
+            ← 메인 페이지로 돌아가기
+        </a>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        function downloadAndroid(event) {
+
+            event.preventDefault();
+
+            alert("Android 앱 다운로드 페이지를 준비 중입니다.");
+
+        }
+
+
+        function downloadIOS(event) {
+
+            event.preventDefault();
+
+            alert("iPhone 앱 다운로드 페이지를 준비 중입니다.");
+
+        }
+
+    </script>
+
+</body>
+</html>
+```

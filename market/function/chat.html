@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" />
+    <title class="notranslate">LODI Chat</title>
+    <link href="../resources/css/bootstrap.css" rel="stylesheet">
+
+    <div class="header">
+        <div style="width: 5%;"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/></svg></a></div>
+        <div style="width: 90%;">
+            <a class="notranslate" href="#">LODI Chat</a>
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg></a>
+        </div>
+        <div class="dropdown">
+            <a class="" href="#" role="button" id="Menu" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16"><path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/></svg>
+            </a>
+          
+            <ul class="dropdown-menu" aria-labelledby="Menu">
+                <div id="google_translate_element" style="display:none;"></div>
+                <!-- "새 번역 링크 UI" -->
+                <ul class="translation-links">
+                    <li><a href="javascript:void(0)" class="korean" data-lang="ko">Korean</a></li>
+                    <li><a href="javascript:void(0)" class="english" data-lang="en">English</a></li>
+                    <li><a href="javascript:void(0)" class="spanish" data-lang="es">Spanish</a></li>
+                    <li><a href="javascript:void(0)" class="japanese" data-lang="ja">Japanese</a></li>
+                    <li><a href="javascript:void(0)" class="chinese" data-lang="zh-CN">Chinese</a></li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+
+    <style>
+        *{ margin: 0; padding: 0; }
+        a{color:#333333; text-decoration: none; font-size: 16px;}
+        a:hover{color:#000;}
+
+        :root{
+            --SOCA : 0;
+        }
+
+        .header { display: inline-flex; width: 100%; top: 0; font-size: 14px; padding: 15px 0; background-image: linear-gradient(-45deg, #ffcb7c, #ffa4e8); color: white; text-align: center; position: fixed;}
+
+        .chat_wrap .chat{padding-bottom: var(--SOCA); padding-top: 54px;}
+        .chat_wrap .chat ul { width: 100%; list-style: none; }
+        .chat_wrap .chat ul li { width: 100%; }
+        .chat_wrap .chat ul li.left { text-align: left; }
+        .chat_wrap .chat ul li.right { text-align: right; }
+        
+        .chat_wrap .chat ul li > div { font-size: 13px;  }
+        .chat_wrap .chat ul li > div.sender { margin: 10px 20px 0 20px; font-weight: bold; }
+        .chat_wrap .chat ul li > div.message { display: inline-block; word-break:break-all; margin: 5px 20px; max-width: 75%; border: 1px solid #888; padding: 10px; border-radius: 5px; background-color: #FCFCFC; color: #555; text-align: left; }
+        
+        .chat_wrap .input-div { padding:0; position: fixed; bottom: -6px; width: 100%; background-color: #FFF; text-align: center; border-top: 1px solid #F18C7E; }
+        .chat_wrap .input-div > textarea { width: 100%; height: 80px; border: none; padding: 5px;}
+        
+        .format { display: none; }
+
+        /*======= 아래는 스크롤바 관련 CSS =======*/
+        html::-webkit-scrollbar {
+            width: 10px;
+        }
+        html::-webkit-scrollbar-thumb {
+            background-image: linear-gradient(-135deg, #ffbae5, #e6b1ff);
+            border-radius: 10px;
+            background-clip: padding-box;
+            border: 2px solid transparent;
+        }
+        html::-webkit-scrollbar-track {
+            background-color: transparent;
+            box-shadow: inset 0px 0px 5px white;
+        }
+
+        .skiptranslate { display: none; }
+        
+        #google_translate_element {
+            display:none !important;
+        }
+
+        .goog-te-balloon-frame { display: none; }
+
+    </style>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <div class="chat_wrap">
+        <div id="chatDiv" class="chat" style="background-color: transparent;">
+            <ul>
+                <!-- 동적 생성 -->
+            </ul>
+        </div>
+        <div class="input-div" style="background-color: transparent;">
+            <textarea id="chatArea" placeholder="메세지를 입력하세요." style="resize: none; background-color: #e2e2e2;"></textarea>
+        </div>
+
+        <!-- format -->
+        <div class="chat format">
+            <ul>
+                <li>
+                    <div class="sender notranslate">
+                        <span></span>
+                    </div>
+                    <div class="message">
+                        <span></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="../resources/js/bootstrap.js"></script>
+
+    <script>
+         const Chat = (function(){
+            // init 함수
+            function init() {
+                // enter 키 이벤트
+                $(document).on('keydown', 'div.input-div textarea', function(e){
+                    if(e.keyCode == 13 && !e.shiftKey) {
+                        e.preventDefault();
+                        const message = $(this).val();
+
+                        // 메시지 전송
+                        sendMessage(message);
+                        // 입력창 clear
+                        clearTextarea();
+                    }
+                });
+            }
+
+            // 메세지 태그 생성
+            function createMessageTag(LR_className, senderName, message) {
+                // 형식 가져오기
+                let chatLi = $('div.chat.format ul li').clone();
+
+                // 값 채우기
+                chatLi.addClass(LR_className);
+                chatLi.find('.sender span').text(senderName);
+                chatLi.find('.message span').text(message);
+
+                return chatLi;
+            }
+
+            // 메세지 태그 append
+            function appendMessageTag(LR_className, senderName, message) {
+                const chatLi = createMessageTag(LR_className, senderName, message);
+
+                $('div.chat:not(.format) ul').append(chatLi);
+
+                // 스크롤바 아래 고정
+                $('html').scrollTop($('html').prop('scrollHeight'));
+            }
+
+            // 메세지 전송
+            function sendMessage(message) {
+                const data = {
+                    "senderName" : myName,
+                    "message" : message
+                };
+                resive(data);
+            }
+
+            // 메세지 입력박스 내용 지우기
+            function clearTextarea() {
+                $('div.input-div textarea').val('');
+            }
+
+            // 메세지 수신
+            function resive(data) {
+                const LR = (data.senderName != myName)? "left" : "right";
+                appendMessageTag(LR, data.senderName, data.message);
+            }
+
+            return {
+                'init': init
+            };
+        })();
+
+        $(function(){
+            Chat.init();
+        });
+
+        function resize() {
+            let textarea = document.getElementById("chatArea");
+            textarea.style.height = "0px";
+            let scrollHeight = textarea.scrollHeight;
+            let style = window.getComputedStyle(textarea);
+            let borderTop = parseInt(style.borderTop);
+            let borderBottom = parseInt(style.borderBottom);
+            textarea.style.height = (scrollHeight + borderTop + borderBottom)+"px";
+            document.documentElement.style.setProperty('--SOCA', textarea.style.height);
+        }
+        window.addEventListener("load", resize);
+        window.onresize = resize;
+        window.onkeydown = resize;
+        window.onkeyup = resize;
+
+    </script>
+
+    <script>
+      // [Firebase 초기화] — 자신의 Firebase 설정으로 변경
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        // ... 나머지 설정 필요 시 추가
+      };
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+
+      // 사용자 이름 변수 (초기값)
+      let myName = "익명 사용자";
+
+      // 로그인 상태 변경 감지
+      auth.onAuthStateChanged(user => {
+        if(user) {
+          myName = user.displayName || user.email || "익명 사용자";
+          console.log("로그인 됨:", myName);
+        } else {
+          myName = "익명 사용자";
+          console.log("로그아웃 상태");
+          // 자동 로그인 시도
+          autoLogin();
+        }
+      });
+
+      // 자동 로그인 함수 (Google 로그인 팝업 띄움)
+      function autoLogin() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider).catch(err => {
+          console.log("자동 로그인 실패:", err);
+        });
+      }
+
+      // 페이지 로드 시 자동 로그인 시도
+      window.onload = () => {
+          autoLogin();
+      };
+    </script>
+</body>
+</html>

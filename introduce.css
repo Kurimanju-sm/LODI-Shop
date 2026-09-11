@@ -1,0 +1,228 @@
+*{box-sizing: border-box;}
+*{margin: 0px; padding: 0px;} /* 기본 테두리 제거 */
+a{text-decoration: none;color:black;} /* a텍스트 앞에 붙는 . 제거 */
+ul{list-style: none;} /* ul의 리스트 스타일 제거 */
+
+/* 각종 전역 변수 등을 위한 root */
+/* :root(){} */
+
+/* html 전체적인 스크롤 애니메이션 움직임 부드럽게 */
+html{scroll-behavior: smooth;}
+
+
+/* 다음은 header 관련 css */
+.header{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 55px;
+    z-index: 40;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    /* background-color: #fdcedfb7; */
+    background-color: #fd8cb5b9;
+    transition: top 0.2s ease-in-out;
+}
+
+.header a{margin: auto; padding: 0px; color: #ffffff;}
+.header a:hover{color: #fd8cb6;}
+
+.header ul{ /* 헤더 ul */
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.header ul li{ /* 헤더 ul li */
+    padding: 0%; /* 헤더 ul li내 글자간 padding */
+    font-size: 16px;
+    text-transform: uppercase;
+    display: inline;
+    margin: 0 15px;
+}
+
+/* .headerLogo {content: url();} */
+.nav-up{top: -55px} /* 헤더 스크롤 이벤트 관련 */
+
+
+/* 아래부터 body 요소 css */
+body{background: #f1f1f1;}
+
+.banner{height:100vh; width:100%;}
+
+
+#home{
+  background-color: white;
+    /* background-image: linear-gradient(to bottom right, #fdaaaa, #b4f5d5); */
+    text-align: center;
+    padding-top: 150px;
+    font-size: 25px;
+}
+
+#home div h1{
+  font-weight:700; 
+  letter-spacing: 2px;
+  /* background-image: -webkit-linear-gradient(92deg, #82c7ff, #fa5eff); */
+  background-image: url("./imgs_introduce/text_background.jpg");
+  color:transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  border: 2px solid;
+  background-size: 300px;
+  transition: 2s ease all;
+  background-position: top;
+}
+/* #home div h1{color:#ff9011;} */
+#home:hover > div .customizedBtn{opacity: 1; transform: none; margin-top: 10%;}
+#home:hover > div h1{background-position: bottom;}
+
+/*================================================================================================*/
+
+#intro{
+    background-image: linear-gradient(to bottom left, #b2ecd4, #faf9bd);
+}
+
+/*================================================================================================*/
+
+#customerService{
+    background-image: linear-gradient(to bottom right, #f3fdbd, #fdb8da);
+}
+
+/*================================================================================================*/
+
+#marketPrice{
+    background-image: linear-gradient(to bottom left, #ffbbd5, #b6e2f8);
+}
+
+/*================================================================================================*/
+
+#mobile{
+    background-image: linear-gradient(to bottom right, #bbe0f3, #eeb8ff);
+}
+
+
+#footer{
+    height: 100px;
+    width: 100%;
+    background-color: #ffe0f7;
+}
+
+
+/*======= 아래는 커스텀 버튼 관련 CSS =======*/
+.customizedBtn {
+    opacity: 0;
+    margin: 20px;
+    width: 200px;
+    height: 55px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+  }
+
+  .btn1 {
+    background: #ffc0c0;
+    color: #fff;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+  }
+  .btn1:hover {
+    background: transparent;
+    color: #ffc0c0;
+     box-shadow:
+     -7px -7px 20px 0px #fff9,
+     -4px -4px 5px 0px #fff9,
+     7px 7px 20px 0px #0002,
+     4px 4px 5px 0px #0001;
+  }
+  .btn1:before,
+  .btn1:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:0;
+    height:2px;
+    width:0;
+    background: #ffbbbb;
+    transition:400ms ease all;
+  }
+  .btn1:after{
+    right:inherit;
+    top:inherit;
+    left:0;
+    bottom:0;
+  }
+  .btn1:hover:before,
+  .btn1:hover:after{
+    width:100%;
+    transition:800ms ease all;
+  }
+
+
+/*======= 아래는 스크롤 애니메이션 관련 CSS =======*/
+.sa {opacity: 0; transition: all .5s ease;}
+.sa-up {transform: translate(0, 100px);}/* 아래에서 위로 페이드 인 */
+.sa-down {transform: translate(0, -100px);}/* 위에서 아래로 페이드 인 */
+.sa-right {transform: translate(-100px, 0);}/* 왼쪽에서 오른쪽으로 페이드 인 */
+.sa-left {transform: translate(100px, 0);}/* 오른쪽에서 왼쪽으로 페이드 인 */
+.sa-rotateL {transform: rotate(180deg);}/* 왼쪽으로 회전하면서 페이드 인 */
+.sa-rotateR {transform: rotate(-180deg);}/* 오른쪽으로 회전하면서 페이드 인 */
+.sa-scaleUp {transform: scale(.5);}/* 작아진 상태에서 커지면서 페이드 인 */
+.sa-scaleDown {transform: scale(1.5);}/* 커진 상태에서 작아지면서 페이드 인 */
+.sa.show {opacity: 1;transform: none;}
+
+
+/*======= 아래는 스크롤바 관련 CSS =======*/
+html::-webkit-scrollbar {
+  width: 10px;
+}
+html::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(-135deg, #ffbae5, #e6b1ff);
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+html::-webkit-scrollbar-track {
+  background-color: transparent;
+  box-shadow: inset 0px 0px 5px white;
+}
+
+
+@media screen and (max-width: 550px) {
+  .header ul li{margin: 0 10px;}
+} 
+
+@media screen and (max-width: 745px) {
+  #home{font-size: 15px;}
+  #home:hover > div .customizedBtn{margin-top: 15%;}
+  .customizedBtn {
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #home{font-size: 40px;}
+} 
+
+@media screen and (min-width: 1400px) {
+  #home{font-size: 60px;}
+  #home:hover > div .customizedBtn{margin-top: 5%;}
+  .customizedBtn {
+    width: 240px;
+    height: 60px;
+    border-radius: 5px;
+  }
+} 

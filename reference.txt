@@ -1,0 +1,47 @@
+1. https://fontawesome.com/account
+-> 아이콘 찾기 좋은 사이트
+
+2. https://webdir.tistory.com/481
+-> 스크롤 반응형 헤더
+
+3. https://alvarotrigo.com/fullPage/#page1
+-> 풀페이지(스크롤 내리면 다음 화면으로 바로 넘어가게 하는 라이브러리)
+
+4. https://michalsnik.github.io/aos/
+-> 스크롤 애니메이트 라이브러리
+
+5. https://joooohee.tistory.com/52
+-> CSS hover 관련 참고 사이트
+
+6. https://inpa.tistory.com/entry/CSS-%F0%9F%92%8D-%EB%B2%84%ED%8A%BC-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%AA%A8%EC%9D%8C
+-> CSS 버튼 디자인 모음 사이트
+
+7. https://velog.io/@juno7803/%EB%B0%98%EC%9D%91%ED%98%95%EC%9C%BC%EB%A1%9C-%EC%A2%85%ED%9A%A1%EB%B9%84-%EC%9C%A0%EC%A7%80%ED%95%98%EC%97%AC-%EC%9D%B4%EB%AF%B8%EC%A7%80-%ED%91%9C%EC%8B%9C%ED%95%98%EA%B8%B0
+-> 이미지 종횡비 유지 관련 참고 사이트
+
+8. https://joshua-dev-story.blogspot.com/2020/11/javascript-css-scroll-animation.html
+-> 스크롤 애니메이션 설명 및 코드 사이트
+
+9. https://colorhunt.co/
+-> 색상 감잡기 좋은 사이트
+
+10. https://logopond.com/
+-> 로고 만들때 유용한 사이트
+
+11. https://gurtn.tistory.com/120
+-> 스크롤바 디자인 관련 설명 사이트
+
+12. https://wsss.tistory.com/91
+-> 글씨 색 변환(그라데이션 효과)
+
+13. https://velog.io/@1703979/TIL-15
+-> 이미지 블러 처리
+
+14. https://webflow.com/
+-> 웹사이트 템플릿
+
+15. https://www.grabient.com/
+-> 그라데이션 사이트
+
+16. https://webzz.tistory.com/872
+-> 블록/인라인 구조 설명
