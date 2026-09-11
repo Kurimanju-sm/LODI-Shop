@@ -226,3 +226,12 @@ html::-webkit-scrollbar-track {
     border-radius: 5px;
   }
 } 
+
+/* 터치 기기에서는 이동 버튼을 항상 표시 */
+@media (hover: none) and (pointer: coarse) {
+    #home > div .customizedBtn {
+        opacity: 1;
+        transform: none;
+        margin-top: 10%;
+    }
+}
