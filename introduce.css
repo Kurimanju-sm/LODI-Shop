@@ -19,13 +19,14 @@ html{scroll-behavior: smooth;}
     z-index: 40;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    /* background-color: #fdcedfb7; */
-    background-color: #fd8cb5b9;
+    background-color: rgba(20, 20, 20, 0.95);
     transition: top 0.2s ease-in-out;
 }
 
 .header a{margin: auto; padding: 0px; color: #ffffff;}
-.header a:hover{color: #fd8cb6;}
+.header a:hover{
+  color: #aaaaaa;
+}
 
 .header ul{ /* 헤더 ul */
     text-align: center;
@@ -46,65 +47,57 @@ html{scroll-behavior: smooth;}
 
 
 /* 아래부터 body 요소 css */
-body{background: #f1f1f1;}
+body{background: #f5f5f5;}
 
 .banner{height:100vh; width:100%;}
 
 
 #home{
-  background-color: white;
+  background-color: #f5f5f5;
     /* background-image: linear-gradient(to bottom right, #fdaaaa, #b4f5d5); */
     text-align: center;
     padding-top: 150px;
     font-size: 25px;
 }
 
-#home div h1{
-  font-weight:700; 
-  letter-spacing: 2px;
-  /* background-image: -webkit-linear-gradient(92deg, #82c7ff, #fa5eff); */
-  background-image: url("./imgs_introduce/text_background.jpg");
-  color:transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  border: 2px solid;
-  background-size: 300px;
-  transition: 2s ease all;
-  background-position: top;
+#home div h1 {
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    color: #111111;
+
+    background: none;
+
+    border: none;
+
+    transition: 0.5s ease all;
 }
 /* #home div h1{color:#ff9011;} */
 #home:hover > div .customizedBtn{opacity: 1; transform: none; margin-top: 10%;}
-#home:hover > div h1{background-position: bottom;}
 
 /*================================================================================================*/
 
-#intro{
-    background-image: linear-gradient(to bottom left, #b2ecd4, #faf9bd);
+#intro {
+    background: #e9e9e9;
 }
 
-/*================================================================================================*/
-
-#customerService{
-    background-image: linear-gradient(to bottom right, #f3fdbd, #fdb8da);
+#customerService {
+    background: #f5f5f5;
 }
 
-/*================================================================================================*/
-
-#marketPrice{
-    background-image: linear-gradient(to bottom left, #ffbbd5, #b6e2f8);
+#marketPrice {
+    background: #e9e9e9;
 }
 
-/*================================================================================================*/
-
-#mobile{
-    background-image: linear-gradient(to bottom right, #bbe0f3, #eeb8ff);
+#mobile {
+    background: #f5f5f5;
 }
-
 
 #footer{
     height: 100px;
     width: 100%;
-    background-color: #ffe0f7;
+    background-color: #111111;
+    color: #ffffff;
 }
 
 
@@ -131,15 +124,15 @@ body{background: #f1f1f1;}
   }
 
   .btn1 {
-    background: #ffc0c0;
-    color: #fff;
+    background: #111111;
+    color: #ffffff;
     line-height: 42px;
     padding: 0;
     border: none;
   }
   .btn1:hover {
     background: transparent;
-    color: #ffc0c0;
+    color: #111111;
      box-shadow:
      -7px -7px 20px 0px #fff9,
      -4px -4px 5px 0px #fff9,
@@ -154,7 +147,7 @@ body{background: #f1f1f1;}
     right:0;
     height:2px;
     width:0;
-    background: #ffbbbb;
+    background: #111111;
     transition:400ms ease all;
   }
   .btn1:after{
@@ -188,7 +181,7 @@ html::-webkit-scrollbar {
   width: 10px;
 }
 html::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(-135deg, #ffbae5, #e6b1ff);
+  background: #777777;
   border-radius: 10px;
   background-clip: padding-box;
   border: 2px solid transparent;
@@ -234,4 +227,197 @@ html::-webkit-scrollbar-track {
         transform: none;
         margin-top: 10%;
     }
+}
+
+
+/* =========================================
+   추가 섹션 디자인
+========================================= */
+
+#intro,
+#customerService,
+#marketPrice,
+#mobile {
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* 섹션 내용 */
+
+.section-content {
+    width: 90%;
+    max-width: 900px;
+}
+
+
+/* 번호 */
+
+.section-number {
+    margin-bottom: 15px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    letter-spacing: 5px;
+
+    color: #222222;
+}
+
+
+/* 섹션 제목 */
+
+.section-content h2 {
+    margin-bottom: 25px;
+
+    font-size: 55px;
+
+    color: #222222;
+}
+
+
+/* 섹션 소제목 */
+
+.section-content h3 {
+    margin-bottom: 25px;
+
+    font-size: 30px;
+
+    line-height: 1.5;
+
+    color: #222222;
+}
+
+
+/* 설명 */
+
+.section-content p {
+    margin-bottom: 10px;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    color: #222222;
+}
+
+/* 검색창 */
+
+.search-box {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 30px;
+}
+
+
+.search-box input {
+    width: 350px;
+    height: 50px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+.search-button {
+    width: 100px;
+    height: 50px;
+
+    padding: 0;
+
+    border: none;
+
+    cursor: pointer;
+
+    color: white;
+}
+
+
+/* =========================================
+   섹션 버튼
+========================================= */
+
+.section-btn {
+    opacity: 1 !important;
+
+    margin-top: 25px !important;
+}
+
+
+/* =========================================
+   아이패드 / 터치기기
+========================================= */
+
+/*
+   기존 버튼은 마우스를 올렸을 때만
+   opacity가 1이 되도록 만들어져 있음.
+
+   아이패드에는 hover가 없기 때문에
+   홈의 이동 버튼을 항상 표시한다.
+*/
+
+@media (hover: none) and (pointer: coarse) {
+
+    #home > div .customizedBtn {
+        opacity: 1 !important;
+
+        transform: none !important;
+
+        margin-top: 10% !important;
+    }
+
+}
+
+
+/* =========================================
+   모바일
+========================================= */
+
+@media screen and (max-width: 745px) {
+
+    .section-content h2 {
+        font-size: 40px;
+    }
+
+
+    .section-content h3 {
+        font-size: 22px;
+    }
+
+
+    .section-content p {
+        font-size: 15px;
+    }
+
+
+    .search-box {
+        flex-direction: column;
+    }
+
+
+    .search-box input {
+        width: 80%;
+    }
+
+
+    .search-button {
+        width: 120px;
+    }
+
 }

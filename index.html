@@ -1,80 +1,382 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./introduce.css">
-    <title>LODI Shop</title>
 
-    <!-- 헤더 -->
-    <header id="header" class="header">
-        <ul>
-            <a href="./introduce.html"><img src="./imgs_introduce/logo.png" style="float: left; margin-top: -8px;"></a>
-            <!-- <div id="headerLogo"></div> -->
-            <li><a href="#home">홈</a></li>
-            <li><a href="#intro">회사소개</a></li>
-            <li><a href="#customerService">고객센터</a></li>
-            <li><a href="#marketPrice">시세검색</a></li>
-            <li><a href="#mobile">모바일앱</a></li>
-        </ul>
-    </header>
+    <link rel="stylesheet" href="./introduce.css">
+
+    <title>LODI Shop</title>
 </head>
 
 
 <body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header id="header" class="header">
+
+        <ul>
+
+            <!-- 로고 -->
+            <a href="#home">
+                <img
+                    src="./imgs_introduce/logo.png"
+                    style="float: left; margin-top: -8px;"
+                    alt="LODI Shop"
+                >
+            </a>
+
+
+            <!-- 메뉴 -->
+            <li>
+                <a href="#home">홈</a>
+            </li>
+
+            <li>
+                <a href="#intro">회사소개</a>
+            </li>
+
+            <li>
+                <a href="#customerService">고객센터</a>
+            </li>
+
+            <li>
+                <a href="#marketPrice">시세검색</a>
+            </li>
+
+            <li>
+                <a href="#mobile">모바일앱</a>
+            </li>
+
+        </ul>
+
+    </header>
+
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
     <div id="home" class="banner">
-        <div><h1 class="sa sa-up" data-sa-margin="200">당신의 덕질을 위한</h1></div>
-        <div><h1 class="sa sa-up" data-sa-margin="200">중고 거래 플랫폼</h1></div>
-        <div><button class="customizedBtn btn1 "onclick="location.href='./market/main.html'">이동</button></div>
+
+        <div>
+            <h1 class="sa sa-up" data-sa-margin="200">
+                당신의 덕질을 위한
+            </h1>
+        </div>
+
+        <div>
+            <h1 class="sa sa-up" data-sa-margin="200">
+                중고 거래 플랫폼
+            </h1>
+        </div>
+
+        <div>
+            <button
+                class="customizedBtn btn1"
+                onclick="location.href='./market/main.html'">
+                이동
+            </button>
+        </div>
+
     </div>
-    <!--
+
+
+
+    <!-- =========================
+         회사소개
+    ========================== -->
+
     <div id="intro" class="banner">
+
+        <div class="section-content">
+
+            <div class="section-number">
+                01
+            </div>
+
+            <h2>
+                LODI Shop
+            </h2>
+
+            <h3>
+                당신의 덕질을 위한<br>
+                중고 거래 플랫폼
+            </h3>
+
+            <p>
+                LODI Shop은 다양한 덕질 상품을 편리하게 사고팔 수 있는<br>
+                중고 거래 플랫폼입니다.
+            </p>
+
+            <p>
+                좋아하는 아티스트의 앨범부터 굿즈, 포토카드까지<br>
+                다양한 상품을 만나보세요.
+            </p>
+
+        </div>
+
     </div>
+
+
+
+    <!-- =========================
+         고객센터
+    ========================== -->
 
     <div id="customerService" class="banner">
+
+        <div class="section-content">
+
+            <div class="section-number">
+                02
+            </div>
+
+            <h2>
+                고객센터
+            </h2>
+
+            <h3>
+                LODI Shop 이용 중<br>
+                궁금한 점이 있으신가요?
+            </h3>
+
+            <p>
+                서비스 이용 중 문제가 발생했거나<br>
+                궁금한 사항이 있다면 문의해주세요.
+            </p>
+
+            <button
+                class="customizedBtn btn1 section-btn"
+                onclick="alert('고객센터는 준비 중입니다.')">
+                문의하기
+            </button>
+
+        </div>
+
     </div>
+
+
+
+    <!-- =========================
+         시세검색
+    ========================== -->
 
     <div id="marketPrice" class="banner">
+
+        <div class="section-content">
+
+            <div class="section-number">
+                03
+            </div>
+
+            <h2>
+                시세검색
+            </h2>
+
+            <h3>
+                내가 찾는 상품의<br>
+                시세를 확인해보세요.
+            </h3>
+
+            <p>
+                원하는 상품의 이름을 입력하여<br>
+                거래 정보를 확인할 수 있습니다.
+            </p>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="priceSearch"
+                    placeholder="상품명을 입력하세요"
+                >
+
+                <button
+                    class="btn1 search-button"
+                    onclick="searchPrice()">
+                    검색
+                </button>
+
+            </div>
+
+            <p id="searchResult"></p>
+
+        </div>
+
     </div>
+
+
+
+    <!-- =========================
+         모바일앱
+    ========================== -->
 
     <div id="mobile" class="banner">
+
+        <div class="section-content">
+
+            <div class="section-number">
+                04
+            </div>
+
+            <h2>
+                모바일앱
+            </h2>
+
+            <h3>
+                언제 어디서나<br>
+                LODI Shop을 만나보세요.
+            </h3>
+
+            <p>
+                더욱 편리하게 상품을 검색하고<br>
+                거래할 수 있습니다.
+            </p>
+
+            <button
+                class="customizedBtn btn1 section-btn"
+                onclick="location.href='./market/function/download.html'">
+                앱 다운로드
+            </button>
+
+        </div>
+
     </div>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
 
     <div id="footer" class="footer">
+        <p>© 2026 LODI Shop</p>
     </div>
-    -->
-    
+
+
+
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+
+    <!-- =========================
+         스크롤 애니메이션
+    ========================== -->
+
     <script>
-        /* 아래는 새로고침시 스크롤 위치 */
-        history.scrollRestoration = "manual"
+
+        history.scrollRestoration = "manual";
 
 
-        /* 아래는 스크롤 애니메이션 */
         const saDefaultMargin = 300;
+
         let saTriggerMargin = 0;
         let saTriggerHeight = 0;
-        const saElementList = document.querySelectorAll('.sa');
+
+        const saElementList =
+            document.querySelectorAll('.sa');
+
 
         const saFunc = function() {
-        for (const element of saElementList) {
-            if (!element.classList.contains('show')) {
-            if (element.dataset.saMargin) {
-                saTriggerMargin = parseInt(element.dataset.saMargin);
-            } else {saTriggerMargin = saDefaultMargin;}
 
-            if (element.dataset.saTrigger) {saTriggerHeight = document.querySelector(element.dataset.saTrigger).getBoundingClientRect().top + saTriggerMargin;
-            } else {saTriggerHeight = element.getBoundingClientRect().top + saTriggerMargin;}
+            for (const element of saElementList) {
 
-            if (window.innerHeight > saTriggerHeight) {
-                let delay = (element.dataset.saDelay) ? element.dataset.saDelay : 0;
-                setTimeout(function() {
-                element.classList.add('show');
-                }, delay);
-            }}
-        }}
+                if (!element.classList.contains('show')) {
+
+                    if (element.dataset.saMargin) {
+
+                        saTriggerMargin =
+                            parseInt(element.dataset.saMargin);
+
+                    } else {
+
+                        saTriggerMargin =
+                            saDefaultMargin;
+                    }
+
+
+                    if (element.dataset.saTrigger) {
+
+                        saTriggerHeight =
+                            document
+                            .querySelector(element.dataset.saTrigger)
+                            .getBoundingClientRect()
+                            .top + saTriggerMargin;
+
+                    } else {
+
+                        saTriggerHeight =
+                            element
+                            .getBoundingClientRect()
+                            .top + saTriggerMargin;
+                    }
+
+
+                    if (window.innerHeight > saTriggerHeight) {
+
+                        let delay =
+                            element.dataset.saDelay
+                            ? element.dataset.saDelay
+                            : 0;
+
+
+                        setTimeout(function() {
+
+                            element.classList.add('show');
+
+                        }, delay);
+
+                    }
+
+                }
+
+            }
+
+        };
+
+
         window.addEventListener('load', saFunc);
         window.addEventListener('scroll', saFunc);
+
+
+
+        /* =========================
+           시세검색
+        ========================== */
+
+        function searchPrice() {
+
+            const input =
+                document.getElementById('priceSearch');
+
+            const result =
+                document.getElementById('searchResult');
+
+
+            if (input.value.trim() === '') {
+
+                result.innerText =
+                    '상품명을 입력해주세요.';
+
+                return;
+            }
+
+
+            result.innerText =
+                '"' + input.value + '" 시세 검색 기능은 준비 중입니다.';
+
+        }
+
     </script>
+
 </body>
+
 </html>
