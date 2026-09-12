@@ -255,97 +255,91 @@
         }
 
 
-        /* =====================================================
-           MENU
-        ===================================================== */
-      
-        .menu-area {
-    position: relative;
-    padding-bottom: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu-area {
+    width: 100%;
+    padding: 0 0 10px 100px;
+    margin: 0;
+
+    display: block;
 }
 
+#menu1 {
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+}
 
-.menu-toggle {
+/* 메뉴를 무조건 가로로 */
+#menu1 > .menu-list {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    width: 100% !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    gap: 8px !important;
+
+    list-style: none !important;
+}
+
+/* 각각의 메뉴 항목 */
+#menu1 > .menu-list > .nav-item {
+    display: block !important;
+
+    width: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    flex: 0 0 auto !important;
+}
+
+/* 메뉴 버튼 / 링크 */
+#menu1 > .menu-list .nav-link,
+#menu1 > .menu-list .category-button {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: auto !important;
+
+    margin: 0 !important;
+    padding: 8px 14px !important;
+
     border: none;
+    border-radius: 6px;
+
     background: transparent;
-    color: #111;
-    padding: 4px 6px;
-    margin: 0;
+    color: #333 !important;
+
+    font-size: 14px;
+    line-height: 1.2;
+
+    white-space: nowrap;
+
+    text-decoration: none;
     cursor: pointer;
 }
 
-
-.menu-toggle svg {
-    width: 24px;
-    height: 24px;
-}
-
-
-#menu1 {
-    position: absolute;
-    top: 32px;
-    left: 0;
-    z-index: 9999;
-
-    width: 180px;
-    margin: 0;
-    padding: 6px 0;
-
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-
-.menu-list {
-    display: flex;
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    width: 100%;
-
-    margin: 0;
-    padding: 0;
-
-    gap: 0;
-}
-
-
-.menu-list .nav-item {
-    width: 100%;
-    margin: 0;
-}
-
-
-.menu-list .nav-link {
-    display: block;
-
-    width: 100%;
-
-    color: #333;
-
-    font-size: 14px;
-
-    padding: 9px 15px;
-
-    border-radius: 0;
-
-    text-align: left;
-
-    transition: 0.2s;
-}
-
-
-.menu-list .nav-link:hover {
+#menu1 > .menu-list .nav-link:hover,
+#menu1 > .menu-list .category-button:hover {
     background: #eeeeee;
-    color: #111;
+    color: #111 !important;
 }
 
+/* 아이콘 */
+#menu1 > .menu-list .nav-link svg {
+    margin-right: 5px;
+    flex-shrink: 0;
+}
         /* 카테고리 */
 
         .category-button {
@@ -1165,38 +1159,9 @@
         <div class="navMargin menu-area">
 
 
-            <button
-                class="menu-toggle"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#menu1"
-                aria-controls="menu1"
-                aria-expanded="false"
-            >
-
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                >
-
-                    <path
-                        fill-rule="evenodd"
-                        d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-                    />
-
-                </svg>
-
-            </button>
-
-
-
-            <div
-                class="collapse"
-                id="menu1"
-            >
-
-                <ul class="navbar-nav menu-list">
+            <div id="menu1">
+        
+                <ul class="menu-list">
 
 
                     <!-- 카테고리 -->
