@@ -9,12 +9,12 @@
 
     <title>LODI Shop</title>
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="LODI Shop">
-<meta property="og:description" content="당신의 덕질을 위한 중고 거래 플랫폼">
-<meta property="og:image" content="https://kurimanju-sm.github.io/LODI-Shop/imgs_introduce/og-image.png">
-<meta property="og:url" content="https://kurimanju-sm.github.io/LODI-Shop/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LODI Shop">
+    <meta property="og:description" content="당신의 덕질을 위한 중고 거래 플랫폼">
+    <meta property="og:image" content="https://kurimanju-sm.github.io/LODI-Shop/imgs_introduce/og-image.png">
+    <meta property="og:url" content="https://kurimanju-sm.github.io/LODI-Shop/">
 </head>
 
 
@@ -30,11 +30,7 @@
 
             <!-- 로고 -->
             <a href="#home">
-                <img
-                    src="./imgs_introduce/logo.png"
-                    style="float: left; margin-top: -8px;"
-                    alt="LODI Shop"
-                >
+                <img src="./imgs_introduce/logo.png" style="float: left; margin-top: -8px;" alt="LODI Shop">
             </a>
 
 
@@ -84,9 +80,7 @@
         </div>
 
         <div>
-            <button
-                class="customizedBtn btn1"
-                onclick="location.href='./market/main.html'">
+            <button class="customizedBtn btn1" onclick="location.href='./market/main.html'">
                 이동
             </button>
         </div>
@@ -158,9 +152,7 @@
                 궁금한 사항이 있다면 문의해주세요.
             </p>
 
-            <button
-                class="customizedBtn btn1 section-btn"
-                onclick="alert('고객센터는 준비 중입니다.')">
+            <button class="customizedBtn btn1 section-btn" onclick="alert('고객센터는 준비 중입니다.')">
                 문의하기
             </button>
 
@@ -199,15 +191,9 @@
 
             <div class="search-box">
 
-                <input
-                    type="text"
-                    id="priceSearch"
-                    placeholder="상품명을 입력하세요"
-                >
+                <input type="text" id="priceSearch" placeholder="상품명을 입력하세요">
 
-                <button
-                    class="btn1 search-button"
-                    onclick="searchPrice()">
+                <button class="btn1 search-button" onclick="searchPrice()">
                     검색
                 </button>
 
@@ -247,9 +233,7 @@
                 거래할 수 있습니다.
             </p>
 
-            <button
-                class="customizedBtn btn1 section-btn"
-                onclick="location.href='./market/function/download.html'">
+            <button class="customizedBtn btn1 section-btn" onclick="location.href='./market/function/download.html'">
                 앱 다운로드
             </button>
 
@@ -292,7 +276,7 @@
             document.querySelectorAll('.sa');
 
 
-        const saFunc = function() {
+        const saFunc = function () {
 
             for (const element of saElementList) {
 
@@ -314,16 +298,16 @@
 
                         saTriggerHeight =
                             document
-                            .querySelector(element.dataset.saTrigger)
-                            .getBoundingClientRect()
-                            .top + saTriggerMargin;
+                                .querySelector(element.dataset.saTrigger)
+                                .getBoundingClientRect()
+                                .top + saTriggerMargin;
 
                     } else {
 
                         saTriggerHeight =
                             element
-                            .getBoundingClientRect()
-                            .top + saTriggerMargin;
+                                .getBoundingClientRect()
+                                .top + saTriggerMargin;
                     }
 
 
@@ -331,11 +315,11 @@
 
                         let delay =
                             element.dataset.saDelay
-                            ? element.dataset.saDelay
-                            : 0;
+                                ? element.dataset.saDelay
+                                : 0;
 
 
-                        setTimeout(function() {
+                        setTimeout(function () {
 
                             element.classList.add('show');
 

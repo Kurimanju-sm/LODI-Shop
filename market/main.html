@@ -12,34 +12,11 @@
     <link href="./resources/css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="./main.css">
 
-    <link
-        rel="shortcut icon"
-        type="image/x-icon"
-        href="./resources/imgs/market/icon.png"
-    >
+    <link rel="shortcut icon" type="image/x-icon" href="./resources/imgs/market/icon.png">
 </head>
 
 
 <body>
-
-
-    <!-- =====================================================
-         사용자 정보
-    ====================================================== -->
-
-    <div id="userInfoBox">
-
-        <span id="userNameDisplay">
-            로그인 상태 확인 중...
-        </span>
-
-        <button id="logoutBtn">
-            로그아웃
-        </button>
-
-    </div>
-
-
 
     <!-- =====================================================
          HEADER
@@ -55,333 +32,239 @@
 
             <div class="top-nav-left">
 
-                <a
-                    href="./function/download.html"
-                >
-                    <img
-                        src="./resources/imgs/market/icon.png"
-                        alt=""
-                    >
+                <a href="./function/download.html">
+                    <img src="./resources/imgs/market/icon.png" alt="">
                     앱다운로드
                 </a>
 
 
-                <a
-                    href="#"
-                    onclick="addFavorite(event)"
-                >
+                <a href="#" onclick="addFavorite(event)">
                     ☆ 즐겨찾기
                 </a>
 
             </div>
 
-
             <div class="top-nav-right">
-
-                <a href="./account/loginForm.html">
+                <a href="./account/loginForm.html" id="loginLink">
                     로그인
                 </a>
 
-            </div>
+                <span id="userNameDisplay">
+                    로그인 상태 확인 중...
+                </span>
 
-        </div>
-
-
-
-        <!-- 메인 헤더 -->
-
-        <div class="navMargin main-nav">
-
-
-            <!-- 로고 -->
-
-            <a
-                class="brand"
-                href="./main.html"
-            >
-
-                <img
-                    src="./resources/imgs/market/logo_2.png"
-                    alt="LODI"
-                >
-
-                LODI Shop
-
-            </a>
-
-
-
-            <!-- 검색 -->
-
-            <div id="searchDiv">
-
-                <input
-                    id="searchInput"
-                    type="search"
-                    placeholder="상품명 검색"
-                    aria-label="상품명 검색"
-                >
-
-
-                <button
-                    class="search-button"
-                    type="button"
-                    onclick="search_onclick_submit()"
-                    aria-label="검색"
-                >
-
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="22"
-                        height="22"
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                    >
-
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.04.04.082.08.125.12l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.997.997 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                        />
-
-                    </svg>
-
+                <button id="logoutBtn">
+                    로그아웃
                 </button>
+            </div>
+            
+            </div>
+            <!-- 메인 헤더 -->
+
+            <div class="navMargin main-nav">
+
+
+                <!-- 로고 -->
+
+                <a class="brand" href="./main.html">
+
+                    <img src="./resources/imgs/market/logo_2.png" alt="LODI">
+
+                    LODI Shop
+
+                </a>
+
+
+
+                <!-- 검색 -->
+
+                <div id="searchDiv">
+
+                    <input id="searchInput" type="search" placeholder="상품명 검색" aria-label="상품명 검색">
+
+
+                    <button class="search-button" type="button" onclick="search_onclick_submit()" aria-label="검색">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                            viewBox="0 0 16 16">
+
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.04.04.082.08.125.12l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.997.997 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
 
             </div>
 
 
-        </div>
 
-
-
-        <!-- =================================================
+            <!-- =================================================
              메뉴
         ================================================== -->
 
-        <div class="navMargin menu-area">
+            <div class="navMargin menu-area">
 
 
-            <div id="menu1">
-        
-                <ul class="menu-list">
+                <div id="menu1">
 
+                    <ul class="menu-list">
 
-                    <!-- 카테고리 -->
 
-                    <li class="nav-item">
+                        <!-- 카테고리 -->
 
-                        <div class="dropdown">
+                        <li class="nav-item">
 
-                            <button
-                                class="category-button dropdown-toggle"
-                                type="button"
-                                id="categoryDropdown"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false"
-                            >
-                                카테고리
-                            </button>
+                            <div class="dropdown">
 
+                                <button class="category-button dropdown-toggle" type="button" id="categoryDropdown"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    카테고리
+                                </button>
 
-                            <ul
-                                id="categoryList"
-                                class="dropdown-menu"
-                                aria-labelledby="categoryDropdown"
-                            >
 
-                                <li>
+                                <ul id="categoryList" class="dropdown-menu" aria-labelledby="categoryDropdown">
 
-                                    <button
-                                        type="button"
-                                        id="mGroup_Dropdown"
-                                        class="dropdown-item"
-                                        onclick="location.href='./function/m_category.html'"
-                                    >
-                                        남성그룹
-                                    </button>
+                                    <li>
 
-                                </li>
+                                        <button type="button" id="mGroup_Dropdown" class="dropdown-item"
+                                            onclick="location.href='./function/m_category.html'">
+                                            남성그룹
+                                        </button>
 
+                                    </li>
 
-                                <li>
 
-                                    <button
-                                        type="button"
-                                        id="fGroup_Dropdown"
-                                        class="dropdown-item"
-                                        onclick="location.href='./function/f_category.html'"
-                                    >
-                                        여성그룹
-                                    </button>
+                                    <li>
 
-                                </li>
+                                        <button type="button" id="fGroup_Dropdown" class="dropdown-item"
+                                            onclick="location.href='./function/f_category.html'">
+                                            여성그룹
+                                        </button>
 
-                            </ul>
+                                    </li>
 
-                        </div>
+                                </ul>
 
-                    </li>
+                            </div>
 
+                        </li>
 
 
-                    <!-- 시세검색 -->
 
-                    <li class="nav-item">
+                        <!-- 시세검색 -->
 
-                        <a
-                            class="nav-link"
-                            href="#"
-                            onclick="openPriceSearch(event)"
-                        >
+                        <li class="nav-item">
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
+                            <a class="nav-link" href="#" onclick="openPriceSearch(event)">
 
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"
-                                />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
 
-                            </svg>
+                                    <path fill-rule="evenodd"
+                                        d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z" />
 
-                            시세검색
+                                </svg>
 
-                        </a>
+                                시세검색
 
-                    </li>
+                            </a>
 
+                        </li>
 
 
-                    <!-- 사기조회 -->
 
-                    <li class="nav-item">
+                        <!-- 사기조회 -->
 
-                        <a
-                            class="nav-link"
-                            href="#"
-                            onclick="notReady(event, '사기조회')"
-                        >
+                        <li class="nav-item">
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
+                            <a class="nav-link" href="#" onclick="notReady(event, '사기조회')">
 
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.04.04.082.08.125.12l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.997.997 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                                />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
 
-                            </svg>
+                                    <path
+                                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.04.04.082.08.125.12l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a.997.997 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
 
-                            사기조회
+                                </svg>
 
-                        </a>
+                                사기조회
 
-                    </li>
+                            </a>
 
+                        </li>
 
 
-                    <!-- 고객지원 -->
 
-                    <li class="nav-item">
+                        <!-- 고객지원 -->
 
-                        <a
-                            class="nav-link"
-                            href="#"
-                            onclick="notReady(event, '고객지원')"
-                        >
+                        <li class="nav-item">
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
+                            <a class="nav-link" href="#" onclick="notReady(event, '고객지원')">
 
-                                <path
-                                    d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"
-                                />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
 
-                                <path
-                                    d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z"
-                                />
+                                    <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
 
-                            </svg>
+                                    <path
+                                        d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2Zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-1.202Z" />
 
-                            고객지원
+                                </svg>
 
-                        </a>
+                                고객지원
 
-                    </li>
+                            </a>
 
+                        </li>
 
 
-                    <!-- 마이페이지 -->
 
-                    <li class="nav-item">
+                        <!-- 마이페이지 -->
 
-                        <a
-                            class="nav-link"
-                            href="./function/account/loginForm.html"
-                        >
+                        <li class="nav-item">
 
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                viewBox="0 0 16 16"
-                            >
+                            <a class="nav-link" href="./function/account/loginForm.html">
 
-                                <path
-                                    d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"
-                                />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    viewBox="0 0 16 16">
 
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 1 8 1z"
-                                />
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
 
-                            </svg>
+                                    <path fill-rule="evenodd"
+                                        d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 1 8 1z" />
 
-                            마이페이지
+                                </svg>
 
-                        </a>
+                                마이페이지
 
-                    </li>
+                            </a>
 
+                        </li>
 
 
-                    <!-- 아이돌 이벤트 -->
 
-                    <li class="nav-item">
+                        <!-- 아이돌 이벤트 -->
 
-                        <a
-                            class="nav-link"
-                            href="#"
-                            onclick="notReady(event, '아이돌 이벤트')"
-                        >
+                        <li class="nav-item">
 
-                            ♡ 아이돌 이벤트
+                            <a class="nav-link" href="#" onclick="notReady(event, '아이돌 이벤트')">
 
-                        </a>
+                                ♡ 아이돌 이벤트
 
-                    </li>
+                            </a>
 
+                        </li>
 
-                </ul>
+
+                    </ul>
+
+                </div>
 
             </div>
-
-        </div>
 
 
     </header>
@@ -394,17 +277,9 @@
 
     <div class="sideBanner">
 
-        <a
-            href="https://www.goobne.co.kr/menu/new?gubun=lesserafim_0515"
-            target="_blank"
-            rel="noreferrer noopener"
-        >
+        <a href="https://www.goobne.co.kr/menu/new?gubun=lesserafim_0515" target="_blank" rel="noreferrer noopener">
 
-            <img
-                src="./resources/imgs/ad/sideBannerImg.png"
-                class="sideBannerImg"
-                alt="광고"
-            >
+            <img src="./resources/imgs/ad/sideBannerImg.png" class="sideBannerImg" alt="광고">
 
         </a>
 
@@ -423,79 +298,37 @@
              TOP SLIDER
         ================================================== -->
 
-        <div
-            id="topSlideBanner"
-            class="carousel slide"
-            data-bs-ride="carousel"
-        >
+        <div id="topSlideBanner" class="carousel slide" data-bs-ride="carousel">
 
 
             <div class="carousel-indicators">
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="3"
-                    aria-label="Slide 4"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="4"
-                    aria-label="Slide 5"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="5"
-                    aria-label="Slide 6"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="5"
+                    aria-label="Slide 6"></button>
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="6"
-                    aria-label="Slide 7"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="6"
+                    aria-label="Slide 7"></button>
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="7"
-                    aria-label="Slide 8"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="7"
+                    aria-label="Slide 8"></button>
 
-                <button
-                    type="button"
-                    data-bs-target="#topSlideBanner"
-                    data-bs-slide-to="8"
-                    aria-label="Slide 9"
-                ></button>
+                <button type="button" data-bs-target="#topSlideBanner" data-bs-slide-to="8"
+                    aria-label="Slide 9"></button>
 
             </div>
 
@@ -506,17 +339,10 @@
 
                 <div class="carousel-item active">
 
-                    <a
-                        href="https://mall.lottechilsung.co.kr/display/displayShop.lecs?displayNo=CF1A07A01&stonType=P"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://mall.lottechilsung.co.kr/display/displayShop.lecs?displayNo=CF1A07A01&stonType=P"
+                        target="_blank" rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg01.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg01.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -525,17 +351,10 @@
 
                 <div class="carousel-item">
 
-                    <a
-                        href="https://www.ekdp.com/brand/view.asp?brandID=oksusutea"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://www.ekdp.com/brand/view.asp?brandID=oksusutea" target="_blank"
+                        rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg02.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg02.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -544,17 +363,10 @@
 
                 <div class="carousel-item">
 
-                    <a
-                        href="https://www.ekdp.com/brand/view.asp?brandID=vita500"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://www.ekdp.com/brand/view.asp?brandID=vita500" target="_blank"
+                        rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg03.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg03.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -563,17 +375,9 @@
 
                 <div class="carousel-item">
 
-                    <a
-                        href="https://www.mcdonalds.co.kr/kor/main.do"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://www.mcdonalds.co.kr/kor/main.do" target="_blank" rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg04.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg04.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -582,17 +386,10 @@
 
                 <div class="carousel-item">
 
-                    <a
-                        href="https://weverseshop.io/en/shop/GL_KRW/artists/35/categories/615"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://weverseshop.io/en/shop/GL_KRW/artists/35/categories/615" target="_blank"
+                        rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg05.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg05.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -601,17 +398,10 @@
 
                 <div class="carousel-item">
 
-                    <a
-                        href="https://www.cubee.co.kr/m/product.html?branduid=10372611"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://www.cubee.co.kr/m/product.html?branduid=10372611" target="_blank"
+                        rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg06.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg06.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -620,17 +410,9 @@
 
                 <div class="carousel-item">
 
-                    <a
-                        href="https://twitter.com/8_OHMYGIRL"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://twitter.com/8_OHMYGIRL" target="_blank" rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg07.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg07.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -639,17 +421,9 @@
 
                 <div class="carousel-item">
 
-                    <a
-                        href="https://twitter.com/eunchae_diary"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://twitter.com/eunchae_diary" target="_blank" rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg08.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg08.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -658,17 +432,9 @@
 
                 <div class="carousel-item">
 
-                    <a
-                        href="https://thejypshop.com/nmixx.html#none"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                    >
+                    <a href="https://thejypshop.com/nmixx.html#none" target="_blank" rel="noreferrer noopener">
 
-                        <img
-                            src="./resources/imgs/ad/slidebannerimg09.png"
-                            class="d-block w-100"
-                            alt="광고"
-                        >
+                        <img src="./resources/imgs/ad/slidebannerimg09.png" class="d-block w-100" alt="광고">
 
                     </a>
 
@@ -679,17 +445,9 @@
 
 
 
-            <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#topSlideBanner"
-                data-bs-slide="prev"
-            >
+            <button class="carousel-control-prev" type="button" data-bs-target="#topSlideBanner" data-bs-slide="prev">
 
-                <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                ></span>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 
                 <span class="visually-hidden">
                     Previous
@@ -698,17 +456,9 @@
             </button>
 
 
-            <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#topSlideBanner"
-                data-bs-slide="next"
-            >
+            <button class="carousel-control-next" type="button" data-bs-target="#topSlideBanner" data-bs-slide="next">
 
-                <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                ></span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
 
                 <span class="visually-hidden">
                     Next
@@ -746,10 +496,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item1_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item1_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -773,10 +521,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item2_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item2_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -800,10 +546,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item3_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item3_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -827,10 +571,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item4_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item4_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -854,10 +596,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item5_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item5_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -881,10 +621,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item6_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item6_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -908,10 +646,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item7_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item7_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -935,10 +671,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item8_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item8_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -962,10 +696,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item9_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item9_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -989,10 +721,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item10_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item10_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -1016,10 +746,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item11_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item11_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -1043,10 +771,8 @@
 
                 <div class="recommandItemFrame">
 
-                    <div
-                        class="recommandItemImg"
-                        style="background-image: url('./resources/imgs/item_pic/item12_thumbnail.jpg');"
-                    ></div>
+                    <div class="recommandItemImg"
+                        style="background-image: url('./resources/imgs/item_pic/item12_thumbnail.jpg');"></div>
 
                     <div class="recommandItemExplanation">
 
@@ -1081,10 +807,7 @@
 
             <a href="#">
 
-                <img
-                    src="./resources/imgs/market/main_pickup_img_banner.png"
-                    alt="추천 배너"
-                >
+                <img src="./resources/imgs/market/main_pickup_img_banner.png" alt="추천 배너">
 
             </a>
 
@@ -1100,10 +823,7 @@
 
             <a href="#">
 
-                <img
-                    src="./resources/imgs/market/ban.png"
-                    alt="배너"
-                >
+                <img src="./resources/imgs/market/ban.png" alt="배너">
 
             </a>
 
@@ -1134,10 +854,8 @@
                     <ul class="nav flex-column">
 
                         <li>
-                            <a href="https://www.instagram.com/s_mini.02/" 
-                            class="nav-link"
-                            target="_blank"
-                            rel="noopener noreferrer">
+                            <a href="https://www.instagram.com/s_mini.02/" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">
                                 Instagram
                             </a>
                         </li>
@@ -1256,25 +974,13 @@
 
                         <div class="d-flex flex-column flex-sm-row w-100 gap-2">
 
-                            <label
-                                for="newsletter1"
-                                class="visually-hidden"
-                            >
+                            <label for="newsletter1" class="visually-hidden">
                                 Email address
                             </label>
 
-                            <input
-                                id="newsletter1"
-                                type="text"
-                                class="form-control"
-                                placeholder="Email address"
-                            >
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
 
-                            <button
-                                class="btn btn-light"
-                                type="button"
-                                onclick="notReady(event, '메일 구독')"
-                            >
+                            <button class="btn btn-light" type="button" onclick="notReady(event, '메일 구독')">
                                 Subscribe
                             </button>
 
@@ -1289,9 +995,7 @@
 
 
 
-            <div
-                class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top navMargin"
-            >
+            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top navMargin">
 
                 <p>
                     © 2026 LODI Shop All rights reserved.
@@ -1302,10 +1006,7 @@
 
                     <li class="ms-3">
 
-                        <a
-                            href="#"
-                            aria-label="Twitter"
-                        >
+                        <a href="#" aria-label="Twitter">
                             Twitter
                         </a>
 
@@ -1314,12 +1015,8 @@
 
                     <li class="ms-3">
 
-                        <a
-                            href="https://www.instagram.com/s_mini.02/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram"
-                        >
+                        <a href="https://www.instagram.com/s_mini.02/" target="_blank" rel="noopener noreferrer"
+                            aria-label="Instagram">
                             Instagram
                         </a>
 
@@ -1328,10 +1025,7 @@
 
                     <li class="ms-3">
 
-                        <a
-                            href="#"
-                            aria-label="Facebook"
-                        >
+                        <a href="#" aria-label="Facebook">
                             Facebook
                         </a>
 
@@ -1355,7 +1049,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="./resources/js/bootstrap.js"></script>
-    
+
     <script type="module" src="./main.js"></script>
 
 </body>
