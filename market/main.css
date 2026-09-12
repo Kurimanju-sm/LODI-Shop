@@ -265,6 +265,8 @@
 
     gap: 8px !important;
 
+    flex-wrap: wrap !important;
+
     list-style: none !important;
 }
 
@@ -821,31 +823,22 @@
 
         @media screen and (max-width: 1100px) {
 
-            .main-nav {
+    .main-nav {
+        flex-wrap: wrap;
 
-                flex-wrap: wrap;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
 
-                padding-top: 12px;
+    #searchDiv {
+        order: 3;
+        width: 100%;
+    }
 
-                padding-bottom: 12px;
-            }
-
-
-            #searchDiv {
-
-                order: 3;
-
-                width: 100%;
-            }
-
-
-            #body_main {
-
-                margin-top: 215px;
-            }
-
-        }
-
+    #body_main {
+        margin-top: 260px;
+    }
+}
 
         @media screen and (max-width: 950px) {
 
@@ -883,74 +876,78 @@
 
         @media screen and (max-width: 700px) {
 
-            .top-nav-left {
+    .top-nav-left {
+        display: none;
+    }
 
-                display: none;
-            }
+    .top-nav {
+        justify-content: flex-end;
+        height: 36px;
+    }
 
+    .main-nav {
+        min-height: 75px;
+        gap: 15px;
+    }
 
-            .top-nav {
+    .brand {
+        font-size: 18px;
+    }
 
-                justify-content: flex-end;
-            }
+    .brand img {
+        width: 32px;
+        height: 32px;
+        margin-right: 7px;
+    }
 
+    #searchDiv {
+        height: 40px;
+        padding: 0 11px;
+    }
 
-            .main-nav {
+    #searchInput {
+        height: 36px;
+        font-size: 13px;
+    }
 
-                min-height: 90px;
-            }
+    .search-button {
+        width: 26px;
+        height: 26px;
+    }
 
+    /* 메뉴 */
+    .menu-area {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 5px;
+    }
 
-            .brand {
+    #menu1 > .menu-list {
+        flex-wrap: wrap !important;
+        gap: 2px !important;
+    }
 
-                font-size: 19px;
-            }
+    #menu1 > .menu-list .nav-link,
+    #menu1 > .menu-list .category-button {
+        font-size: 12px;
+        padding: 5px 6px !important;
+    }
 
+    #body_main {
+        margin-top: 230px;
+    }
 
-            .brand img {
+    #recommandGrid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
 
-                width: 34px;
+        gap: 12px;
+    }
 
-                height: 34px;
-            }
-
-
-            .menu-list {
-
-                gap: 2px;
-            }
-
-
-            .menu-list .nav-link,
-            .category-button {
-
-                font-size: 12px;
-
-                padding: 5px 6px;
-            }
-
-
-            #body_main {
-
-                margin-top: 200px;
-            }
-
-
-            #recommandGrid {
-
-                grid-template-columns:
-                    repeat(2, minmax(0, 1fr));
-
-                gap: 12px;
-            }
-
-
-            .section-header h4 {
-
-                font-size: 19px;
-            }
-
-        }
+    .section-header h4 {
+        font-size: 19px;
+    }
+}
 
 
         @media screen and (max-width: 480px) {
